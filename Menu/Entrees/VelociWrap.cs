@@ -88,7 +88,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// This method allows the user to remove the cheese.
         /// </summary>
-        public void holdCheese()
+        public void HoldCheese()
         {
             this.cheese = false;
         }
