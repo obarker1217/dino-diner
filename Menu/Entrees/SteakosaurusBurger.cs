@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
     /// This class creates the SteakosaurusBurger object and its menu specifications, including its 
     /// calories, price, and ingredients. It also lists which ingredients can be changed.
     /// </summary>
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : Entree
     {
         /// <summary>
         /// This bool determines if the item contains a bun.
@@ -45,7 +45,7 @@ namespace DinoDiner.Menu.Entrees
         /// This list contains all the ingredients of the burger and allows the bun, pickles, ketchup,
         /// and mustard to be removed.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

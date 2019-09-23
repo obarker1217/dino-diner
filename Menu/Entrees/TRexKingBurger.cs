@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
     /// This class creates the TRexKingBurger object and its menu specifications, including its 
     /// calories, price, and ingredients. It also lists which ingredients can be changed.
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// This bool determines if the item contains a bun.
@@ -61,7 +61,7 @@ namespace DinoDiner.Menu.Entrees
         /// This list contains all the ingredients of the burger and allows the bun, lettuce, tomato,
         /// onions, pickles, ketchup, mustard and mayo to be removed.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

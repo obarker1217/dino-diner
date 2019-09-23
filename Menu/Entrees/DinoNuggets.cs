@@ -13,7 +13,7 @@ namespace DinoDiner.Menu.Entrees
     /// calories, price, and ingredients. It also allows the user to change how many nuggets
     /// are included in an order and changes the price and calorie count to fit.
     /// </summary>
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
         /// <summary>
         /// This uint keeps track of how many dino nuggets are on a given order.
@@ -33,7 +33,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// This list contains all the ingredients of the nuggets and allows the user to add nuggets.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
@@ -52,8 +52,8 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public DinoNuggets()
         {
-            this.Price = 4.25 + (0.25 * (nuggetCount - 6));
-            this.Calories = 59 * nuggetCount;
+            this.Price = 4.25;
+            this.Calories = 354;
         }
         
         /// <summary>
@@ -62,6 +62,8 @@ namespace DinoDiner.Menu.Entrees
         public void AddNugget()
         {
             this.nuggetCount++;
+            this.Price += 0.25;
+            this.Calories += 59;
         }
     }
 }

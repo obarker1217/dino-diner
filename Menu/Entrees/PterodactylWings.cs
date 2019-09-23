@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
     /// This class creates the PterodactylWings object and its menu specifications, including its 
     /// calories, price, and ingredients. No ingredients are changed.
     /// </summary>
-    public class PterodactylWings
+    public class PterodactylWings : Entree
     {
         /// <summary>
         /// This double has a getter and a setter to decide the price of the menu item.
@@ -28,7 +28,7 @@ namespace DinoDiner.Menu.Entrees
         /// This list contains all the ingredients of the wings and allows for no ingredients to be
         /// changed.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

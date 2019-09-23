@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
     /// This class creates the Brontowurst object and its menu specifications, including its 
     /// calories, price, and ingredients. It also lists which ingredients can be changed.
     /// </summary>
-    public class Brontowurst
+    public class Brontowurst : Entree
     {
         /// <summary>
         /// This bool determines if the item contains a bun.
@@ -26,7 +26,7 @@ namespace DinoDiner.Menu.Entrees
         /// This bool determines if the item contains onions.
         /// </summary>
         private bool onions = true;
-
+/*
         /// <summary>
         /// This double has a getter and a setter to decide the price of the menu item.
         /// </summary>
@@ -36,12 +36,12 @@ namespace DinoDiner.Menu.Entrees
         /// a setter.
         /// </summary>
         public uint Calories { get; set; }
-
+*/
         /// <summary>
         /// This list contains all the ingredients of the Brontowurst and allows the bun, peppers,
         /// and onions to be removed.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
@@ -69,6 +69,9 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 5.36;
             this.Calories = 498;
+            ingredients.Add("Whole WHeat Bun");
+            ingredients.Add("Peppers");
+            ingredients.Add("Onion");
         }
 
         /// <summary>

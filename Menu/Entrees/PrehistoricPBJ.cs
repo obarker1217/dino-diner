@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// This class creates the PrehistoricPBJ object and its menu specifications, including its 
     /// calories, price, and ingredients. It also lists which ingredients can be changed.
     /// </summary>
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ : Entree
     {
         /// <summary>
         /// This bool determines if the item contains peanut butter.
@@ -36,7 +36,7 @@ namespace DinoDiner.Menu.Entrees
         /// This list contains all the ingredients of the PBJ and allows the peanut butter and jelly
         /// to be removed.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

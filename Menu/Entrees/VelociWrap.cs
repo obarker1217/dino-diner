@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
     /// This class creates the VelociWrap object and its menu specifications, including its 
     /// calories, price, and ingredients. It also lists which ingredients can be changed.
     /// </summary>
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
         /// <summary>
         /// This bool determines if the item contains Caesar dressing.
@@ -41,7 +41,7 @@ namespace DinoDiner.Menu.Entrees
         /// This list contains all the ingredients of the wrap and allows the dressing, lettuce,
         /// and cheese to be removed.
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
