@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-    public class Triceritots : Side
+    public class Fryceritops : Side
     {
         private Size size;
         public override Size Size
@@ -12,24 +12,23 @@ namespace DinoDiner.Menu.Sides
             set
             {
                 size = value;
-                switch(size)
+                switch (size)
                 {
                     case Size.Small:
                         Price = 0.99;
-                        Calories = 352;
+                        Calories = 222;
                         break;
 
                     case Size.Medium:
                         Price = 1.45;
-                        Calories = 410;
+                        Calories = 365;
                         break;
 
                     case Size.Large:
                         Price = 1.95;
-                        Calories = 590;
+                        Calories = 480;
                         break;
                 }
-
             }
             get
             {
@@ -37,10 +36,10 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
-        public Triceritots()
+        public Fryceritops()
         {
             Price = 0.99;
-            Calories = 352;
+            Calories = 222;
             ingredients.Add("Potato");
             ingredients.Add("Salt");
             ingredients.Add("Vegetable Oil");
