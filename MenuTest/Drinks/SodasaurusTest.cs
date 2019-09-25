@@ -10,6 +10,9 @@ using DinoDiner.Menu;
 
 namespace MenuTest.Drinks
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class SodasaurusTest
     {
         /// <summary>
@@ -139,10 +142,67 @@ namespace MenuTest.Drinks
         /// 
         /// </summary>
         [Fact]
-        public void ShouldHaveDefaultValue()
+        public void ShouldHaveDefaultIce()
         {
             Sodasaurus soda = new Sodasaurus();
             Assert.True(soda.Ice);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectDefaultCalories()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Equal<uint>(112, soda.Calories);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectCaloriesAfterSettingSmall()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Medium;
+            soda.Size = Size.Small;
+            Assert.Equal<uint>(112, soda.Calories);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectCaloriesAfterSettingMedium()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Small;
+            soda.Size = Size.Medium;
+            Assert.Equal<uint>(156, soda.Calories);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectCaloriesAfterSettingLarge()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Medium;
+            soda.Size = Size.Large;
+            Assert.Equal<uint>(208, soda.Calories);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public void HoldIceResultsInIcePropertyBeingFalse()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.False(soda.Ice);
         }
     }
 }

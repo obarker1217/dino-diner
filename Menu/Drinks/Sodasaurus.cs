@@ -16,16 +16,6 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// 
         /// </summary>
-        public bool Ice { get; set; } = true;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        //public double Price { get; set; } = 1.50;
-        
-        /// <summary>
-        /// 
-        /// </summary>
         private SodasaurusFlavor flavor;
         
         /// <summary>
@@ -43,7 +33,20 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Ice { get; set; } = true;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public double Price { get; set; } = 1.50;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public uint Calories { get; set; } = 122;
 
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.
@@ -82,7 +85,17 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public void HoldIce()
+        {
+            this.Ice = false;
+        }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Sodasaurus()
         {
             Price = 1.50;

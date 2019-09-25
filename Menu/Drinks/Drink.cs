@@ -52,7 +52,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public List<string> Ingredients
+        public virtual List<string> Ingredients
         {
             get
             {

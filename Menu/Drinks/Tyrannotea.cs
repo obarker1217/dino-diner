@@ -13,9 +13,6 @@ namespace DinoDiner.Menu.Drinks
     /// </summary>
     public class Tyrannotea : Drink
     {
-        public bool sweet = false;
-
-        public bool lemon = false;
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.
         /// </summary>
@@ -65,18 +62,40 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        private bool sweet { get; set; } = false;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool lemon { get; set; } = false;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void AddLemon()
         {
             this.lemon = true;
+            Ingredients.Add("Lemon");
         }
 
+        public void AddSweetener()
+        {
+            this.sweet = true;
+            Ingredients.Add("Cane Sugar");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Tyrannotea()
         {
             Price = 1.50;
             Calories = 112;
             Ingredients.Add("Water");
             Ingredients.Add("Tea");
-            //Ingredients.Add("Cane Sugar");
         }
     }
 }
