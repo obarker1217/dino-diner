@@ -9,16 +9,6 @@ using System.Text;
 namespace DinoDiner.Menu.Sides
 {
     /// <summary>
-    /// This enumerator allows all sides to have differently sized orders.
-    /// </summary>
-    public enum Size
-    {
-        Small,
-        Medium, 
-        Large
-    }
-
-    /// <summary>
     /// This abstract base class creates all the properties for the sides classes.
     /// </summary>
     public abstract class Side

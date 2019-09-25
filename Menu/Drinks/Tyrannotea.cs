@@ -1,4 +1,4 @@
-﻿/* Sodasaurus.cs
+﻿/* Tyrannotea.cs
  * Author: Owen Barker
  */
 
@@ -6,18 +6,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
     /// 
     /// </summary>
-    public class Sodasaurus : Drink
+    public class Tyrannotea : Drink
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public SodasaurusFlavor Flavor { get; set; }
+        public bool sweet = false;
 
+        public bool lemon = false;
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.
         /// </summary>
@@ -34,18 +32,30 @@ namespace DinoDiner.Menu.Sides
                 switch (size)
                 {
                     case Size.Small:
-                        Price = 1.50;
-                        Calories = 112;
+                        Price = 0.99;
+                        Calories = 8;
+                        if(sweet)
+                        {
+                            Calories = 16;
+                        }
                         break;
 
                     case Size.Medium:
-                        Price = 2.00;
-                        Calories = 156;
+                        Price = 1.49;
+                        Calories = 16;
+                        if (sweet)
+                        {
+                            Calories = 32;
+                        }
                         break;
 
                     case Size.Large:
-                        Price = 2.50;
-                        Calories = 208;
+                        Price = 1.99;
+                        Calories = 32;
+                        if (sweet)
+                        {
+                            Calories = 64;
+                        }
                         break;
                 }
             }
@@ -55,14 +65,18 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
+        public void AddLemon()
+        {
+            this.lemon = true;
+        }
 
-        public Sodasaurus()
+        public Tyrannotea()
         {
             Price = 1.50;
             Calories = 112;
             Ingredients.Add("Water");
-            Ingredients.Add("Natural Flavors");
-            Ingredients.Add("Cane Sugar");
+            Ingredients.Add("Tea");
+            //Ingredients.Add("Cane Sugar");
         }
     }
 }
