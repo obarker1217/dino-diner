@@ -118,7 +118,7 @@ namespace MenuTest.Drinks
         /// 
         /// </summary>
         [Fact]
-        public void ShouldHaveCorrectPriceAfterSettingSMedium()
+        public void ShouldHaveCorrectPriceAfterSettingMedium()
         {
             Sodasaurus soda = new Sodasaurus();
             soda.Size = Size.Small;
@@ -203,6 +203,18 @@ namespace MenuTest.Drinks
             Sodasaurus soda = new Sodasaurus();
             soda.HoldIce();
             Assert.False(soda.Ice);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public void ShouldHaveCorrectIngredients()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Contains("Water", soda.Ingredients);
+            Assert.Contains("Natural Flavors", soda.Ingredients);
+            Assert.Contains("Cane Sugar", soda.Ingredients);
         }
     }
 }

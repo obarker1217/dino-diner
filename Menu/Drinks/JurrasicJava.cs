@@ -1,4 +1,4 @@
-﻿/* Tyrannotea.cs
+﻿/* JurrasicJava.cs
  * Author: Owen Barker
  */
 
@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// 
     /// </summary>
-    public class Tyrannotea : Drink
+    class JurrasicJava : Drink
     {
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.
@@ -29,18 +29,18 @@ namespace DinoDiner.Menu.Drinks
                 switch (size)
                 {
                     case Size.Small:
-                        Price = 0.99;
-                        Calories = 8;
+                        Price = 0.59;
+                        Calories = 2;
                         break;
 
                     case Size.Medium:
-                        Price = 1.49;
-                        Calories = 16;
+                        Price = 0.99;
+                        Calories = 4;
                         break;
 
                     case Size.Large:
                         Price = 1.99;
-                        Calories = 32;
+                        Calories = 8;
                         break;
                 }
             }
@@ -53,49 +53,43 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// 
         /// </summary>
-        public bool Sweet { get; set; } = false;
+        private bool Decaf { get; set; } = false;
 
         /// <summary>
         /// 
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool RoomForCream { get; set; } = false;
 
         /// <summary>
         /// 
         /// </summary>
-        public void AddLemon()
+        public void LeaveRoomForCream()
         {
-            this.Lemon = true;
-            Ingredients.Add("Lemon");
+            this.RoomForCream = true;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void AddSweetener()
+        public void AddIce()
         {
-            this.Sweet = true;
-            this.Calories = this.Calories * 2;
-            Ingredients.Add("Cane Sugar");
+            this.Ice = true;
         }
 
-        public void RemoveSweetener()
+        public void IsDecaf()
         {
-            this.Sweet = false;
-            this.Calories = this.Calories / 2;
-            Ingredients.Remove("Cane Sugar");
+            this.Decaf = true;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public Tyrannotea()
+        public JurrasicJava()
         {
-            Price = 0.99;
-            Calories = 8;
-            Ice = true;
+            Price = 0.59;
+            Calories = 2;
             Ingredients.Add("Water");
-            Ingredients.Add("Tea");
+            Ingredients.Add("Coffee");
         }
     }
 }
