@@ -9,9 +9,10 @@ using System.Text;
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
-    /// 
+    /// This class creates the JurrasicJava drink and allows the user to choose if they want ice and what size they want,
+    /// which affects calorie count and price.
     /// </summary>
-    class JurrasicJava : Drink
+    public class JurrasicJava : Drink
     {
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.
@@ -39,7 +40,7 @@ namespace DinoDiner.Menu.Drinks
                         break;
 
                     case Size.Large:
-                        Price = 1.99;
+                        Price = 1.49;
                         Calories = 8;
                         break;
                 }
@@ -51,38 +52,41 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This boolean property determines if the coffee is decaffienated.
         /// </summary>
-        private bool Decaf { get; set; } = false;
+        public bool Decaf { get; set; } = false;
 
         /// <summary>
-        /// 
+        /// This bool decides whether or not room should be left in the coffee for the customer to add cream.
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool SpaceForCream { get; set; } = false;
 
         /// <summary>
-        /// 
+        /// This method adds room to the coffee so the customer may add cream.
         /// </summary>
-        public void LeaveRoomForCream()
+        public void LeaveSpaceForCream()
         {
-            this.RoomForCream = true;
+            this.SpaceForCream = true;
         }
 
         /// <summary>
-        /// 
+        /// This method allows ice to be added in the coffee. In this drink's case, ice is defualted at false.
         /// </summary>
         public void AddIce()
         {
             this.Ice = true;
         }
 
+        /// <summary>
+        /// This function sets the Decaf property to true.
+        /// </summary>
         public void IsDecaf()
         {
             this.Decaf = true;
         }
 
         /// <summary>
-        /// 
+        /// This constructor sets the default values of a new JurrasicJava object.
         /// </summary>
         public JurrasicJava()
         {

@@ -1,6 +1,7 @@
 ﻿/* SodasaurusTest
  * Author: Owen Barker
  */
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,12 +12,12 @@ using DinoDiner.Menu;
 namespace MenuTest.Drinks
 {
     /// <summary>
-    /// 
+    /// This test class checks to make sure the Sodasaurus class works as intended.
     /// </summary>
     public class SodasaurusTest
     {
         /// <summary>
-        /// 
+        /// This test makes sure the SodasaurusFLavor can be set to Cherry.
         /// </summary>
         [Fact]
         public void ShouldBeAbleToSetFlavorToCherry()
@@ -27,7 +28,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the SodasaurusFLavor can be set to Cola.
         /// </summary>
         [Fact]
         public void ShouldBeAbleToSetFlavorToCola()
@@ -38,7 +39,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the SodasaurusFLavor can be set to Chocolate.
         /// </summary>
         [Fact]
         public void ShouldBeAbleToSetFlavorToChocolate()
@@ -49,7 +50,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the SodasaurusFLavor can be set to Orange.
         /// </summary>
         [Fact]
         public void ShouldBeAbleToSetFlavorToOrange()
@@ -60,7 +61,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the SodasaurusFLavor can be set to Lime.
         /// </summary>
         [Fact]
         public void ShouldBeAbleToSetFlavorToLime()
@@ -71,7 +72,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the SodasaurusFLavor can be set to Vanilla.
         /// </summary>
         [Fact]
         public void ShouldBeAbleToSetFlavorToVanilla()
@@ -82,7 +83,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the SodasaurusFLavor can be set to RootBeer.
         /// </summary>
         [Fact]
         public void ShouldBeAbleToSetFlavorToRootBeer()
@@ -93,7 +94,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the price is set correctly when a new instance is created.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
@@ -103,7 +104,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the price is correct when the drink is set to small.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSmall()
@@ -115,7 +116,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the price is correct when the drink is set to medium.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingMedium()
@@ -127,7 +128,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the price is correct when the drink is set to large.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingLarge()
@@ -139,7 +140,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test checks to make sure ice is defaulted to true.
         /// </summary>
         [Fact]
         public void ShouldHaveDefaultIce()
@@ -149,7 +150,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the calorie count is set correctly when a new instance is created.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()
@@ -159,7 +160,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the calorie count is correct when the drink is set to small.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingSmall()
@@ -171,7 +172,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the calorie count is correct when the drink is set to medium.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingMedium()
@@ -183,7 +184,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the calorie count is correct when the drink is set to large.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingLarge()
@@ -195,7 +196,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure HoldIce() makes the Ice property false.
         /// </summary>
         [Fact]
         public void HoldIceResultsInIcePropertyBeingFalse()
@@ -206,7 +207,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test checks to make sure the drink has the correct default ingredients.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectIngredients()

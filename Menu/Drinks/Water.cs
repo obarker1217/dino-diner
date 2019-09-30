@@ -9,7 +9,8 @@ using System.Text;
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
-    /// 
+    /// This class creates the Water drink and allows the user to choose if they want ice and what size they want,
+    /// which does not affect calorie count or price.
     /// </summary>
     public class Water : Drink
     {
@@ -23,29 +24,6 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public override Size Size
         {
-            /*
-            set
-            {
-                size = value;
-                switch (size)
-                {
-                    case Size.Small:
-                        Price = 0.59;
-                        Calories = 2;
-                        break;
-
-                    case Size.Medium:
-                        Price = 0.99;
-                        Calories = 4;
-                        break;
-
-                    case Size.Large:
-                        Price = 1.99;
-                        Calories = 8;
-                        break;
-                }
-            }
-            */
             get
             {
                 return size;
@@ -53,22 +31,27 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This property represents a slice of lemon being added to a drink. It defaults to false.
         /// </summary>
         public bool Lemon { get; set; } = false;
 
+        /// <summary>
+        /// This method allows the user to add a lemon to their drink.
+        /// </summary>
         public void AddLemon()
         {
             this.Lemon = true;
+            Ingredients.Add("Lemon");
         }
 
         /// <summary>
-        /// 
+        /// This constructor sets the default values of a new Water object.
         /// </summary>
         public Water()
         {
             Price = 0.10;
             Calories = 0;
+            Ice = true;
             Ingredients.Add("Water");
         }
     }

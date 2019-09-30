@@ -1,6 +1,7 @@
 ﻿/* TyrannoteaTest.cs
  * Author: Owen Barker
  */
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,12 +12,12 @@ using DinoDiner.Menu;
 namespace MenuTest.Drinks
 {
     /// <summary>
-    /// 
+    /// This test class checks to make sure the Tyrannotea class works as intended.
     /// </summary>
     public class TyrannoteaTest
     {
         /// <summary>
-        /// 
+        /// This test makes sure the price is set correctly when a new instance is created.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
@@ -26,7 +27,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the price is correct when the drink is set to small.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSmall()
@@ -38,7 +39,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the price is correct when the drink is set to medium.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingMedium()
@@ -50,7 +51,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the price is correct when the drink is set to large.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingLarge()
@@ -62,7 +63,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test checks to make sure ice is defaulted to true.
         /// </summary>
         [Fact]
         public void ShouldHaveDefaultIce()
@@ -72,7 +73,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the calorie count is set correctly when a new instance is created.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()
@@ -82,7 +83,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the calorie count is correct when the drink is set to small.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingSmall()
@@ -94,7 +95,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the calorie count is correct when the drink is set to medium.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingMedium()
@@ -106,7 +107,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure the calorie count is correct when the drink is set to large.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingLarge()
@@ -118,7 +119,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure HoldIce() makes the Ice property false.
         /// </summary>
         [Fact]
         public void HoldIceResultsInIcePropertyBeingFalse()
@@ -129,7 +130,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure AddLemon() makes the Lemon property true.
         /// </summary>
         [Fact]
         public void AddLemonResultsInLemonPropertyBeingTrue()
@@ -140,7 +141,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test checks to make sure the drink has the correct default ingredients.
         /// </summary>
         [Fact]
         public void ShouldHaveCorrectIngredients()
@@ -151,7 +152,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure that the AddSweetener() method doubles the calories regardless of size.
         /// </summary>
         [Fact]
         public void SettingSweetShouldDoubleCalories()
@@ -174,7 +175,7 @@ namespace MenuTest.Drinks
         }
 
         /// <summary>
-        /// 
+        /// This test makes sure that RemoveSweetener() sets all calories to default.
         /// </summary>
         [Fact]
         public void RemovingSweetShouldSetCaloriesToDefault()

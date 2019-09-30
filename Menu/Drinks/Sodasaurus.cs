@@ -9,17 +9,19 @@ using System.Text;
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
-    /// 
+    /// This class creates the Sodasarus drink and allows the user to choose flavor, if they want ice, and what size they want,
+    /// which affects calorie count and price.
     /// </summary>
     public class Sodasaurus : Drink
     {
         /// <summary>
-        /// 
+        /// This is the desired Sodasaurus flavor taken from the SodasaurusFLavor enum.
         /// </summary>
         private SodasaurusFlavor flavor;
         
         /// <summary>
-        /// 
+        /// This is the actual public property for the flavor that uses the private property to choose the correct
+        /// flavor of Sodasaurus.
         /// </summary>
         public SodasaurusFlavor Flavor
         {
@@ -32,21 +34,6 @@ namespace DinoDiner.Menu.Drinks
                 flavor = value;
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool Ice { get; set; } = true;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public double Price { get; set; } = 1.50;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public uint Calories { get; set; } = 122;
 
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.
@@ -86,20 +73,13 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        public void HoldIce()
-        {
-            this.Ice = false;
-        }
-
-        /// <summary>
-        /// 
+        /// This constructor sets the default values of a new Sodasaurus object.
         /// </summary>
         public Sodasaurus()
         {
             Price = 1.50;
             Calories = 112;
+            Ice = true;
             Ingredients.Add("Water");
             Ingredients.Add("Natural Flavors");
             Ingredients.Add("Cane Sugar");

@@ -9,23 +9,7 @@ using System.Text;
 namespace DinoDiner.Menu.Drinks
 {
     /// <summary>
-    /// 
-    /// </summary>
-    public enum SodasaurusFlavor
-    {
-        Cola,
-        Orange,
-        Lime,
-        Cherry,
-        Vanilla,
-        RootBeer,
-        //Grape,
-        Chocolate//,
-        //Cream
-    }
-
-    /// <summary>
-    /// 
+    /// This class gives general properties to all drinks. It is abstract so it can be overridden if need be.
     /// </summary>
     public abstract class Drink
     {
@@ -45,7 +29,7 @@ namespace DinoDiner.Menu.Drinks
         public uint Calories { get; set; }
 
         /// <summary>
-        /// 
+        /// This boolean decides if a drink should have ice in it. All drinks but JurrasicJava default to true.
         /// </summary>
         public bool Ice { get; set; }
 
@@ -66,7 +50,7 @@ namespace DinoDiner.Menu.Drinks
         public virtual Size Size { get; set; }
 
         /// <summary>
-        /// 
+        /// This method removes the ice from a given drink.
         /// </summary>
         public void HoldIce()
         {
