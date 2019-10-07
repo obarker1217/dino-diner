@@ -12,18 +12,8 @@ namespace DinoDiner.Menu.Entrees
     /// This class creates the PterodactylWings object and its menu specifications, including its 
     /// calories, price, and ingredients. No ingredients are changed.
     /// </summary>
-    public class PterodactylWings : Entree
+    public class PterodactylWings : Entree, IMenuItem
     {
-        /// <summary>
-        /// This double has a getter and a setter to decide the price of the menu item.
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// This unsigned integer gives the calorie count for this menu item. It has a getter and 
-        /// a setter.
-        /// </summary>
-        public uint Calories { get; set; }
-
         /// <summary>
         /// This list contains all the ingredients of the wings and allows for no ingredients to be
         /// changed.
@@ -35,6 +25,17 @@ namespace DinoDiner.Menu.Entrees
                 List<string> ingredients = new List<string> { "Chicken", "Wing Sauce" };
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// This method overrides the standard ToString() method to show the item.
+        /// </summary>
+        /// <returns>
+        /// A string containing the named menu item is returned.
+        /// </returns>
+        public override string ToString()
+        {
+            return "Pterodactyl Wings";
         }
 
         /// <summary>

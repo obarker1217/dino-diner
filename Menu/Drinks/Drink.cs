@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// This class gives general properties to all drinks. It is abstract so it can be overridden if need be.
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
         /// <summary>
         /// This is the read-only list of ingredients.
@@ -32,6 +32,17 @@ namespace DinoDiner.Menu.Drinks
         /// This boolean decides if a drink should have ice in it. All drinks but JurrasicJava default to true.
         /// </summary>
         public bool Ice { get; set; }
+
+        /// <summary>
+        /// This string names a size for the ToString() override.
+        /// </summary>
+        public string SizeString
+        {
+            get
+            {
+                return Size.ToString();
+            }
+        }
 
         /// <summary>
         /// Gets the ingredients list

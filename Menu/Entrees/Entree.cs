@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// This abstract base class creates the properties for the price, calorie count, and ingredients for all entree classes.
     /// </summary>
-    public abstract class Entree
+    public abstract class Entree: IMenuItem
     {
         /// <summary>
         /// This is the read-only list of ingredients.

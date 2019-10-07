@@ -12,7 +12,6 @@
     <Compile Remove="Entrees\DinoNuggetsTest.cs" />
     <Compile Remove="Entrees\PrehistoricPBJTest.cs" />
     <Compile Remove="Entrees\PterodactylWingsTest.cs" />
-    <Compile Remove="Entrees\SteakosaurusBurgerTest.cs" />
     <Compile Remove="Entrees\TRexKingBurgerTest.cs" />
     <Compile Remove="Entrees\VelociWrapTest.cs" />
   </ItemGroup>
@@ -25,10 +24,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Menu\Menu.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Entrees\" />
   </ItemGroup>
 
 </Project>

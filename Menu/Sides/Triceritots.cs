@@ -54,6 +54,19 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
+        /// This list contains all the ingredients of the wings and allows for no ingredients to be
+        /// changed.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string> { "Potato", "Salt", "Vegetable Oil" };
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// This class creates the actual Triceratots with the default price and calories of a small size order
         /// and all the ingredients.
         /// </summary>
@@ -61,9 +74,6 @@ namespace DinoDiner.Menu.Sides
         {
             Price = 0.99;
             Calories = 352;
-            ingredients.Add("Potato");
-            ingredients.Add("Salt");
-            ingredients.Add("Vegetable Oil");
         }
     }
 }

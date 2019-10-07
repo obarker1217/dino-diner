@@ -53,6 +53,30 @@ namespace DinoDiner.Menu.Sides
         }
 
         /// <summary>
+        /// This method overrides the standard ToString() method to show the item.
+        /// </summary>
+        /// <returns>
+        /// A string containing the named menu item is returned.
+        /// </returns>
+        public override string ToString()
+        {
+            return SizeString + " Meteor Mac and Cheese";
+        }
+
+        /// <summary>
+        /// This list contains all the ingredients of the wings and allows for no ingredients to be
+        /// changed.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string> { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// This class creates the actual MeteorMacAndCheese with the default price and calories of a small size order
         /// and all the ingredients.
         /// </summary>
@@ -60,9 +84,6 @@ namespace DinoDiner.Menu.Sides
         {
             Price = 0.99;
             Calories = 420;
-            ingredients.Add("Macaroni Noodles");
-            ingredients.Add("Cheese Product");
-            ingredients.Add("Pork Sausage");
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Drinks
     /// This class creates the JurrasicJava drink and allows the user to choose if they want ice and what size they want,
     /// which affects calorie count and price.
     /// </summary>
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink, IMenuItem
     {
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.
@@ -86,14 +86,41 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
+        /// This list contains all the ingredients of the wings and allows for no ingredients to be
+        /// changed.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string> { "Coffee", "Water" };
+                return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            if(Decaf)
+            {
+                return SizeString + " Decaf Jurassic Java";
+            }
+            else
+            {
+                return SizeString + " Jurassic Java";
+            }
+        }
+
+        /// <summary>
         /// This constructor sets the default values of a new JurrasicJava object.
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             Price = 0.59;
             Calories = 2;
-            Ingredients.Add("Water");
-            Ingredients.Add("Coffee");
         }
     }
 }

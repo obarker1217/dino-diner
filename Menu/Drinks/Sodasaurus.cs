@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Drinks
     /// This class creates the Sodasarus drink and allows the user to choose flavor, if they want ice, and what size they want,
     /// which affects calorie count and price.
     /// </summary>
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, IMenuItem
     {
         /// <summary>
         /// This is the desired Sodasaurus flavor taken from the SodasaurusFLavor enum.
@@ -32,6 +32,21 @@ namespace DinoDiner.Menu.Drinks
             set
             {
                 flavor = value;
+            }
+        }
+
+        /// <summary>
+        /// This method translates the flavor into a string.
+        /// </summary>
+        private string FlavorString
+        {
+            get
+            {
+                return Flavor.ToString();
+            }
+            set
+            {
+                FlavorString = value;
             }
         }
 
@@ -73,6 +88,28 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
+        /// This list contains all the ingredients in the form of a string.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Natural Flavors", "Water", "Cane Sugar" };
+
+                return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return SizeString + " " + FlavorString + " Sodasaurus";
+        }
+
+        /// <summary>
         /// This constructor sets the default values of a new Sodasaurus object.
         /// </summary>
         public Sodasaurus()
@@ -80,9 +117,6 @@ namespace DinoDiner.Menu.Drinks
             Price = 1.50;
             Calories = 112;
             Ice = true;
-            Ingredients.Add("Water");
-            Ingredients.Add("Natural Flavors");
-            Ingredients.Add("Cane Sugar");
         }
     }
 }

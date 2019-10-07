@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Drinks
     /// This class creates the Water drink and allows the user to choose if they want ice and what size they want,
     /// which does not affect calorie count or price.
     /// </summary>
-    public class Water : Drink
+    public class Water : Drink, IMenuItem
     {
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.
@@ -24,10 +24,55 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public override Size Size
         {
+            set
+            {
+                size = value;
+                switch (size)
+                {
+                    case Size.Small:
+                        Price = 0.10;
+                        Calories = 0;
+                        break;
+
+                    case Size.Medium:
+                        Price = 0.10;
+                        Calories = 0;
+                        break;
+
+                    case Size.Large:
+                        Price = 0.10;
+                        Calories = 0;
+                        break;
+                }
+            }
             get
             {
                 return size;
             }
+        }
+
+        /// <summary>
+        /// This list contains all the ingredients of the wings and allows for no ingredients to be
+        /// changed.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string> { "Water" };
+                return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// This method overrides the standard ToString() method to show the item.
+        /// </summary>
+        /// <returns>
+        /// A string containing the named menu item is returned.
+        /// </returns>
+        public override string ToString()
+        {
+            return SizeString + " Water";
         }
 
         /// <summary>
@@ -52,7 +97,6 @@ namespace DinoDiner.Menu.Drinks
             Price = 0.10;
             Calories = 0;
             Ice = true;
-            Ingredients.Add("Water");
         }
     }
 }

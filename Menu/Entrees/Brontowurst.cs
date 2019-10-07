@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
     /// This class creates the Brontowurst object and its menu specifications, including its 
     /// calories, price, and ingredients. It also lists which ingredients can be changed.
     /// </summary>
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, IMenuItem
     {
         /// <summary>
         /// This bool determines if the item contains a bun.
@@ -26,17 +26,7 @@ namespace DinoDiner.Menu.Entrees
         /// This bool determines if the item contains onions.
         /// </summary>
         private bool onions = true;
-/*
-        /// <summary>
-        /// This double has a getter and a setter to decide the price of the menu item.
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// This unsigned integer gives the calorie count for this menu item. It has a getter and 
-        /// a setter.
-        /// </summary>
-        public uint Calories { get; set; }
-*/
+
         /// <summary>
         /// This list contains all the ingredients of the Brontowurst and allows the bun, peppers,
         /// and onions to be removed.
@@ -60,6 +50,17 @@ namespace DinoDiner.Menu.Entrees
                 }
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// This method overrides the standard ToString() method to show the item.
+        /// </summary>
+        /// <returns>
+        /// A string containing the named menu item is returned.
+        /// </returns>
+        public override string ToString()
+        {
+            return "Brontowurst";
         }
 
         /// <summary>

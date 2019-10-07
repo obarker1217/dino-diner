@@ -30,11 +30,22 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public List<string> Ingredients
+        public virtual List<string> Ingredients
         {
             get
             {
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// This string names a size for the ToString() override.
+        /// </summary>
+        public string SizeString
+        {
+            get
+            {
+                return Size.ToString();
             }
         }
 

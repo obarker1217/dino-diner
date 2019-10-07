@@ -14,7 +14,7 @@ namespace MenuTest.Drinks
     /// <summary>
     /// This test class checks to make sure the JurrasicJava class works as intended.
     /// </summary>
-    public class JurrasicJavaTest
+    public class JurassicJavaTest
     {
         /// <summary>
         /// This test makes sure the price is set correctly when a new instance is created.
@@ -22,7 +22,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             Assert.Equal<double>(0.59, coffee.Price);
         }
 
@@ -32,7 +32,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSmall()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             coffee.Size = Size.Medium;
             coffee.Size = Size.Small;
             Assert.Equal<double>(0.59, coffee.Price);
@@ -44,7 +44,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingMedium()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             coffee.Size = Size.Small;
             coffee.Size = Size.Medium;
             Assert.Equal<double>(0.99, coffee.Price);
@@ -56,7 +56,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingLarge()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             coffee.Size = Size.Medium;
             coffee.Size = Size.Large;
             Assert.Equal<double>(1.49, coffee.Price);
@@ -68,7 +68,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldNotHaveDefaultIce()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             Assert.False(coffee.Ice);
         }
 
@@ -78,7 +78,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             Assert.Equal<uint>(2, coffee.Calories);
         }
 
@@ -88,7 +88,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingSmall()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             coffee.Size = Size.Medium;
             coffee.Size = Size.Small;
             Assert.Equal<uint>(2, coffee.Calories);
@@ -100,7 +100,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingMedium()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             coffee.Size = Size.Small;
             coffee.Size = Size.Medium;
             Assert.Equal<uint>(4, coffee.Calories);
@@ -112,7 +112,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingLarge()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             coffee.Size = Size.Medium;
             coffee.Size = Size.Large;
             Assert.Equal<uint>(8, coffee.Calories);
@@ -124,7 +124,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void AddIceResultsInIcePropertyBeingTrue()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             coffee.AddIce();
             Assert.True(coffee.Ice);
         }
@@ -135,7 +135,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void IsDecafSetsTheDecafPropertyToTrue()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             coffee.IsDecaf();
             Assert.True(coffee.Decaf);
         }
@@ -146,7 +146,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void LeaveSpaceForCreamSetsSpaceForCreamPropertyToTrue()
         {
-            JurrasicJava coffee = new JurrasicJava();
+            JurassicJava coffee = new JurassicJava();
             coffee.LeaveSpaceForCream();
             Assert.True(coffee.SpaceForCream);
         }
@@ -157,9 +157,11 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectIngredients()
         {
-            JurrasicJava coffee = new JurrasicJava();
-            Assert.Contains("Water", coffee.Ingredients);
-            Assert.Contains("Coffee", coffee.Ingredients);
+            JurassicJava coffee = new JurassicJava();
+            List<string> ingredients = coffee.Ingredients;
+            Assert.Contains<string>("Water", ingredients);
+            Assert.Contains<string>("Coffee", ingredients);
+            Assert.Equal<int>(2, ingredients.Count);
         }
     }
 }

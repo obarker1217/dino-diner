@@ -12,7 +12,7 @@ namespace DinoDiner.Menu.Drinks
     /// This class creates the Tyrranotea drink and allows the user to choose if they want ice and what size they want,
     /// which affects calorie count and price.
     /// </summary>
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, IMenuItem
     {
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.
@@ -52,6 +52,39 @@ namespace DinoDiner.Menu.Drinks
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            if (Sweet)
+            {
+                return SizeString + " Sweet Tyrannotea";
+            }
+            else
+            {
+                return SizeString + " Tyrannotea";
+            }
+        }
+
+        /// <summary>
+        /// This list contains all the ingredients of the wings and allows for no ingredients to be
+        /// changed.
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string> { "Water", "Tea" };
+                if(Sweet)
+                {
+                    ingredients.Add("Cane Sugar");
+                }
+                return ingredients;
+            }
+        }
+
+        /// <summary>
         /// This boolean decides if the tea has sugar added. 
         /// </summary>
         public bool Sweet { get; set; } = false;
@@ -77,7 +110,7 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Sweet = true;
             this.Calories = this.Calories * 2;
-            Ingredients.Add("Cane Sugar");
+            //Ingredients.Add("Cane Sugar");
         }
 
         /// <summary>
@@ -98,8 +131,6 @@ namespace DinoDiner.Menu.Drinks
             Price = 0.99;
             Calories = 8;
             Ice = true;
-            Ingredients.Add("Water");
-            Ingredients.Add("Tea");
         }
     }
 }

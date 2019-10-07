@@ -11,7 +11,7 @@ using DinoDiner.Menu.Drinks;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo
+    public class CretaceousCombo : IMenuItem
     {
         /// <summary>
         /// 
@@ -117,6 +117,17 @@ namespace DinoDiner.Menu
                 ingredients.AddRange(Side.Ingredients);
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// This method overrides the standard ToString() method to show the item.
+        /// </summary>
+        /// <returns>
+        /// A string containing the named menu item is returned.
+        /// </returns>
+        public override string ToString()
+        {
+            return Size.ToString() + " " + Entree.ToString() + " Combo";
         }
 
         /// <summary>

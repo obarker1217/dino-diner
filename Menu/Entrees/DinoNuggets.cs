@@ -13,7 +13,7 @@ namespace DinoDiner.Menu.Entrees
     /// calories, price, and ingredients. It also allows the user to change how many nuggets
     /// are included in an order and changes the price and calorie count to fit.
     /// </summary>
-    public class DinoNuggets : Entree
+    public class DinoNuggets : Entree, IMenuItem
     {
         /// <summary>
         /// This uint keeps track of how many dino nuggets are on a given order.
@@ -44,6 +44,17 @@ namespace DinoDiner.Menu.Entrees
                 }
                 return ingredients;
             }
+        }
+
+        /// <summary>
+        /// This method overrides the standard ToString() method to show the item.
+        /// </summary>
+        /// <returns>
+        /// A string containing the named menu item is returned.
+        /// </returns>
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
         }
 
         /// <summary>
