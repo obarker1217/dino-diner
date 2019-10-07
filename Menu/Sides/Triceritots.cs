@@ -13,7 +13,7 @@ namespace DinoDiner.Menu.Sides
     /// This class inherits from the Side class and contains three sizes, each with changing price and calories 
     /// and a list of ingredients that cannot be changed.
     /// </summary>
-    public class Triceritots : Side
+    public class Triceritots : Side, IMenuItem
     {
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.

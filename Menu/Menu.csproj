@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Menu.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Milestones\" />
   </ItemGroup>
 

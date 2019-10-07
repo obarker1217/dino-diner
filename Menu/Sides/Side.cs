@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Sides
     /// <summary>
     /// This abstract base class creates all the properties for the sides classes.
     /// </summary>
-    public abstract class Side
+    public abstract class Side : IMenuItem
     {
         /// <summary>
         /// This is the read-only list of ingredients.

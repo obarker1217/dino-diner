@@ -70,9 +70,6 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 5.36;
             this.Calories = 498;
-            ingredients.Add("Whole WHeat Bun");
-            ingredients.Add("Peppers");
-            ingredients.Add("Onion");
         }
 
         /// <summary>

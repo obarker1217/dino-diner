@@ -21,44 +21,12 @@ namespace DinoDiner.Menu
         /// <summary>
         /// 
         /// </summary>
-        private Side side;
+        public Side Side { get; set; } = new Fryceritops();
 
         /// <summary>
         /// 
         /// </summary>
-        public Side Side
-        {
-            get
-            {
-                return side;
-            }
-            set
-            {
-                side = value;
-                side.Size = size;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private Drink drink;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Drink Drink
-        {
-            get
-            {
-                return drink;
-            }
-            set
-            {
-                drink = value;
-                drink.Size = size;
-            }
-        }
+        public Drink Drink { get; set; } = new Sodasaurus();
 
         /// <summary>
         /// 
@@ -136,8 +104,6 @@ namespace DinoDiner.Menu
         public CretaceousCombo(Entree entree)
         {
             Entree = entree;
-            Side = new Fryceritops();
-            Drink = new Sodasaurus();
         }
     }
 }
