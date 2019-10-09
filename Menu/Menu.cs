@@ -8,17 +8,19 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class Menu
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Menu : IMenuItem 
     {
-        private List<IMenuItem> availableMenuItems;
-        public List<IMenuItem> AvailableMenuItems
+        public IMenuItem MenuItem(uint )
+        private List<MenuItem> availableMenuItems;
+
+        public List<MenuItem> AvailableMenuItems
         {
             get
             {
-                foreach()
-                {
-
-                }
+                return availableMenuItems;
             }
         }
     }

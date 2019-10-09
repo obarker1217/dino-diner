@@ -88,6 +88,15 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public CretaceousCombo(Entree entree)
+        {
+            Entree = entree;
+        }
+
+        /*
+        /// <summary>
         /// This method overrides the standard ToString() method to show the item.
         /// </summary>
         /// <returns>
@@ -97,13 +106,6 @@ namespace DinoDiner.Menu
         {
             return Size.ToString() + " " + Entree.ToString() + " Combo";
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public CretaceousCombo(Entree entree)
-        {
-            Entree = entree;
-        }
+        */
     }
 }
