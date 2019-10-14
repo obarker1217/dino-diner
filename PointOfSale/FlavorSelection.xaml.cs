@@ -1,4 +1,4 @@
-﻿/* SideSelection.xaml.cs
+﻿/* FlavorSelection.xaml.cs
  * Author: Owen Barker
  */
 
@@ -20,84 +20,84 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for SideSelection.xaml
+    /// Interaction logic for FlavorSelection.xaml
     /// </summary>
-    public partial class SideSelection : Page
+    public partial class FlavorSelection : Page
     {
         /// <summary>
-        /// This initializes the side selection page.
+        /// This initializes the flavor selection page.
         /// </summary>
-        public SideSelection()
+        public FlavorSelection()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// This gives functionality to the Fryceritops button.
+        /// This gives functionality to the Cherry button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FryceritopsButton(object sender, RoutedEventArgs e)
+        private void CherryButton(object sender, RoutedEventArgs e)
         {
 
         }
 
         /// <summary>
-        /// This gives functionality to the Meteor Mac and Cheese button.
+        /// This gives functionality to the Chocolate button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MeteorMacAndCheeseButton(object sender, RoutedEventArgs e)
+        private void ChocolateButton(object sender, RoutedEventArgs e)
         {
 
         }
 
         /// <summary>
-        /// This gives functionality to the Mezzorella Sticks button.
+        /// This gives functionality to the Cola button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MezzorellaSticksButton(object sender, RoutedEventArgs e)
+        private void ColaButton(object sender, RoutedEventArgs e)
         {
 
         }
 
         /// <summary>
-        /// This gives functionality to the Trieritots button.
+        /// This gives functionality to the Lime button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TriceritotsButton(object sender, RoutedEventArgs e)
+        private void LimeButton(object sender, RoutedEventArgs e)
         {
 
         }
 
         /// <summary>
-        /// This gives functionality to the Small button.
+        /// This gives functionality to the Orange button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SmallRadioButton(object sender, RoutedEventArgs e)
+        private void OrangeButton(object sender, RoutedEventArgs e)
         {
 
         }
 
         /// <summary>
-        /// This gives functionality to the Medium button.
+        /// This gives functionality to the Root Beer button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MediumRadioButton(object sender, RoutedEventArgs e)
+        private void RootBeerButton(object sender, RoutedEventArgs e)
         {
 
         }
 
         /// <summary>
-        /// This gives functionality to the Large button.
+        /// This gives functionality to the Vanilla button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LargeRadioButton(object sender, RoutedEventArgs e)
+        private void VanillaButton(object sender, RoutedEventArgs e)
         {
 
         }

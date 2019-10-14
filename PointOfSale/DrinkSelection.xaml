@@ -11,33 +11,70 @@
     <WrapPanel>
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="MinWidth" Value="200"/>
-                <Setter Property="MinHeight" Value="200"/>
+                <Setter Property="MinWidth" Value="115"/>
+                <Setter Property="MinHeight" Value="115"/>
+            </Style>
+            <Style TargetType="ToggleButton">
+                <Setter Property="MinWidth" Value="115"/>
+                <Setter Property="MinHeight" Value="115"/>
+            </Style>
+            <Style TargetType="RadioButton">
+                <Setter Property="MinWidth" Value="50"/>
+                <Setter Property="MinHeight" Value="100"/>
             </Style>
         </WrapPanel.Resources>
-        <Button VerticalContentAlignment="Top" Click="TyrannoteaButton">
+        <Button VerticalContentAlignment="Top" Click="TyrannoteaButton" Width="145">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-12.png"></ImageBrush>
             </Button.Background>
             Tyrannotea
         </Button>
-        <Button VerticalContentAlignment="Top" Click="JurassicJavaButton">
+        <Button VerticalContentAlignment="Top" Click="JurassicJavaButton" Width="145">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-13.png"></ImageBrush>
             </Button.Background>
             Jurassic Java
         </Button>
-        <Button VerticalContentAlignment="Top" Click="SodasaurusButton">
+        <Button VerticalContentAlignment="Top" Click="SodasaurusButton" Width="145">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-14.png"></ImageBrush>
             </Button.Background>
             Sodasaurus
         </Button>
-        <Button VerticalContentAlignment="Top" Click="WaterButton">
+        <Button VerticalContentAlignment="Top" Click="WaterButton" Width="145">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/DinoDiner-15.png"></ImageBrush>
             </Button.Background>
             Water
         </Button>
+
+        <ToggleButton VerticalContentAlignment="Center" Checked="SweetButton" Margin="0,0,0,0" IsEnabled="False">
+            Sweet
+        </ToggleButton>
+        <ToggleButton VerticalContentAlignment="Center" Checked="DecafButton" Margin="0,0,0,0" IsEnabled="False">
+            Decaf
+        </ToggleButton>
+        <ToggleButton VerticalContentAlignment="Center" Checked="FlavorButton" Margin="0,0,0,0" IsEnabled="False">
+            Flavor
+        </ToggleButton>
+
+        <Button VerticalContentAlignment="Center" Margin="0,0,0,0" Click="AddLemonButton">
+            Add Lemon
+        </Button>
+        <Button VerticalContentAlignment="Center" Margin="0,0,0,0" Click="HoldIceButton">
+            Hold Ice
+        </Button>
+
+        <RadioButton VerticalContentAlignment="Center" Margin="100,0,50,0" Checked="SmallRadioButton">
+            Small
+        </RadioButton>
+        <RadioButton VerticalContentAlignment="Center" Margin="50,0,50,0" Checked="MediumRadioButton">
+            Medium
+        </RadioButton>
+        <RadioButton VerticalContentAlignment="Center" Margin="50,0,25,0" Checked="LargeRadioButton">
+            Large
+        </RadioButton>
+
+
     </WrapPanel>
 </Page>

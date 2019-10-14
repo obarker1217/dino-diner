@@ -8,6 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
         <TextBlock DockPanel.Dock="Right" Width="200" TextAlignment="Center" Background="LightSteelBlue" Text="// TODO: Order"/>
-        <Frame Source="MenuCategorySelection.xaml"></Frame>
+        <Frame Source="MenuCategorySelection.xaml" Navigated="Frame_Navigated"></Frame>
     </DockPanel>
 </Window>

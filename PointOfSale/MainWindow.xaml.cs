@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* MainWindow.xaml.cs
+ * AUthor: Owen Barker
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +24,22 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// This initializes tge structure for the main window of the whole project.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// This tracks whenever a new page is changed to inside the main window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Frame_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
     }
 }

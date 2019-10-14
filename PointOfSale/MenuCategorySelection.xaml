@@ -42,7 +42,7 @@
 
         <Button Click="SelectSide" Grid.Row="1" Grid.Column="0">Sides</Button>
 
-        <Button Click="SelectDrink" Grid.Row="1" Grid.Column="1">Drink</Button>
+        <Button Click="SelectDrink" Grid.Row="1" Grid.Column="1">Drinks</Button>
 
     </Grid>
 

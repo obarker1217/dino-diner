@@ -1,5 +1,5 @@
-﻿/* MenuCategorySelection.xaml.cs
- * Author: Owen Barker 
+﻿/* CustomizeCombo.xaml.cs
+ * Author: Owen Barker
  */
 
 using System;
@@ -20,56 +20,66 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MenuCategorySelection.xaml
+    /// Interaction logic for CustomizeCombo.xaml
     /// </summary>
-    public partial class MenuCategorySelection : Page
+    public partial class CustomizeCombo : Page
     {
         /// <summary>
-        /// This initializes the menu selection page.
+        /// This initializes the page.
         /// </summary>
-        public MenuCategorySelection()
+        public CustomizeCombo()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// This gives functionality to the Select Combo button.
+        /// This gives functionality to the Side button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SelectCombo(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ComboSelection());
-        }
-
-        /// <summary>
-        /// This gives functionality to the Select Entree button.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SelectEntree(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new EntreeSelection());
-        }
-
-        /// <summary>
-        /// This gives functionality to the Select Side button.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SelectSide(object sender, RoutedEventArgs e)
+        private void SideButton(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new SideSelection());
         }
 
         /// <summary>
-        /// This gives functionality to the Select Drink button.
+        /// This gives functionality to the Drink button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SelectDrink(object sender, RoutedEventArgs e)
+        private void DrinkButton(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new DrinkSelection());
+        }
+
+        /// <summary>
+        /// This gives functionality to the Small button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SmallRadioButton(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// This gives functionality to the Medium button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MediumRadioButton(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// This gives functionality to the Large button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LargeRadioButton(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
