@@ -4,6 +4,7 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu.Entrees
 {
@@ -11,7 +12,7 @@ namespace DinoDiner.Menu.Entrees
     /// This class creates the PrehistoricPBJ object and its menu specifications, including its 
     /// calories, price, and ingredients. It also lists which ingredients can be changed.
     /// </summary>
-    public class PrehistoricPBJ : Entree, IMenuItem
+    public class PrehistoricPBJ : Entree, IMenuItem, INotifyPropertyChanged
     {
         /// <summary>
         /// This bool determines if the item contains peanut butter.
@@ -21,6 +22,13 @@ namespace DinoDiner.Menu.Entrees
         /// This bool determines if the item contains jelly.
         /// </summary>
         private bool jelly = true;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         
         /// <summary>
         /// This list contains all the ingredients of the PBJ and allows the peanut butter and jelly
@@ -69,6 +77,8 @@ namespace DinoDiner.Menu.Entrees
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -77,6 +87,30 @@ namespace DinoDiner.Menu.Entrees
         public void HoldJelly()
         {
             this.jelly = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
+        }
+
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if(!peanutButter)
+                {
+                    special.Add("Hold Peanut Butter");
+                }
+                if(!jelly)
+                {
+                    special.Add("Hold Jelly");
+                }
+                return special.ToArray();
+            }
         }
     }
 }
