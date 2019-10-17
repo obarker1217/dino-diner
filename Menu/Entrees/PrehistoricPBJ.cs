@@ -5,7 +5,7 @@
 
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class creates the PrehistoricPBJ object and its menu specifications, including its 

@@ -8,12 +8,6 @@
 
   <ItemGroup>
     <Compile Remove="CretaceousComboTest.cs" />
-    <Compile Remove="Entrees\BrontowurstTest.cs" />
-    <Compile Remove="Entrees\DinoNuggetsTest.cs" />
-    <Compile Remove="Entrees\PrehistoricPBJTest.cs" />
-    <Compile Remove="Entrees\PterodactylWingsTest.cs" />
-    <Compile Remove="Entrees\TRexKingBurgerTest.cs" />
-    <Compile Remove="Entrees\VelociWrapTest.cs" />
   </ItemGroup>
 
   <ItemGroup>

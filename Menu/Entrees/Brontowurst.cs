@@ -6,9 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    /// <summary>
+    /// <summary>C:\Users\obark\Source\Repos\dino-diner6\Menu\Entrees\PrehistoricPBJ.cs
     /// This class creates the Brontowurst object and its menu specifications, including its 
     /// calories, price, and ingredients. It also lists which ingredients can be changed.
     /// </summary>

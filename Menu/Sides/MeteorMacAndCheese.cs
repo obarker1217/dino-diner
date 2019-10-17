@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// This class inherits from the Side class and contains three sizes, each with changing price and calories 
