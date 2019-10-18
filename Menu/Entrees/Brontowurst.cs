@@ -93,5 +93,26 @@ namespace DinoDiner.Menu
         {
             this.onions = false;
         }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun)
+                {
+                    special.Add("Hold Whole Wheat Bun");
+                }
+                if (!peppers)
+                {
+                    special.Add("Hold Peppers");
+                }
+                if(!onions)
+                {
+                    special.Add("Hold Onions");
+                }
+                return special.ToArray();
+            }
+        }
     }
 }

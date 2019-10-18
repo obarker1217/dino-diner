@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
     /// This class creates the PrehistoricPBJ object and its menu specifications, including its 
     /// calories, price, and ingredients. It also lists which ingredients can be changed.
     /// </summary>
-    public class PrehistoricPBJ : Entree, IMenuItem, INotifyPropertyChanged
+    public class PrehistoricPBJ : Entree, IMenuItem
     {
         /// <summary>
         /// This bool determines if the item contains peanut butter.
@@ -22,13 +22,6 @@ namespace DinoDiner.Menu
         /// This bool determines if the item contains jelly.
         /// </summary>
         private bool jelly = true;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         
         /// <summary>
         /// This list contains all the ingredients of the PBJ and allows the peanut butter and jelly
@@ -91,12 +84,7 @@ namespace DinoDiner.Menu
             NotifyOfPropertyChanged("Special");
         }
 
-        public string Description
-        {
-            get { return this.ToString(); }
-        }
-
-        public string[] Special
+        public new string[] Special
         {
             get
             {
