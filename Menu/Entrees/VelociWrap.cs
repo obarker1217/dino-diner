@@ -35,7 +35,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> ingredients = new List<string> { "Flour Tortilla", "Chicken Breast"};
+                List<string> ingredients = new List<string> { "Flour Tortilla", "Chicken Breast" };
                 if (dressing)
                 {
                     ingredients.Add("Ceasar Dressing");
@@ -78,6 +78,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.dressing = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the lettuce.
@@ -85,6 +87,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the cheese.
@@ -92,6 +96,33 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.cheese = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
+        }
+
+        /// <summary>
+        /// This method creates a ToString function for the special changes to the 
+        /// given menu item.
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!dressing)
+                {
+                    special.Add("Hold Ceasar Dressing");
+                }
+                if (!lettuce)
+                {
+                    special.Add("Hold Romaine Lettuce");
+                }
+                if (!cheese)
+                {
+                    special.Add("Hold Parmesan Cheese");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

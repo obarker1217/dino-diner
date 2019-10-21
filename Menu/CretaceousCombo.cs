@@ -129,7 +129,7 @@ namespace DinoDiner.Menu
             Entree = entree;
         }
 
-        /*
+        
         /// <summary>
         /// This method overrides the standard ToString() method to show the item.
         /// </summary>
@@ -138,9 +138,9 @@ namespace DinoDiner.Menu
         /// </returns>
         public override string ToString()
         {
-            return Size.ToString() + " " + Entree.ToString() + " Combo";
+            return Entree.ToString() + " Combo";
         }
-        */
+        
 
         public string[] Special
         {

@@ -119,6 +119,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the lettuce.
@@ -126,6 +128,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the tomato.
@@ -133,6 +137,8 @@ namespace DinoDiner.Menu
         public void HoldTomato()
         {
             this.tomato = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the onion.
@@ -140,6 +146,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onion = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the pickles.
@@ -147,6 +155,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the ketchup.
@@ -154,6 +164,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the mustard.
@@ -161,6 +173,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the mayonnaise.
@@ -168,6 +182,53 @@ namespace DinoDiner.Menu
         public void HoldMayo()
         {
             this.mayo = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
+        }
+
+        /// <summary>
+        /// This method creates a ToString function for the special changes to the 
+        /// given menu item.
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun)
+                {
+                    special.Add("Hold Whole Wheat Bun");
+                }
+                if (!lettuce)
+                {
+                    special.Add("Hold Lettuce");
+                }
+                if (!tomato)
+                {
+                    special.Add("Hold Tomato");
+                }
+                if (!onion)
+                {
+                    special.Add("Hold Onions");
+                }
+                if (!pickle)
+                {
+                    special.Add("Hold Pickles");
+                }
+                if (!ketchup)
+                {
+                    special.Add("Hold Ketchup");
+                }
+                if (!mustard)
+                {
+                    special.Add("Hold Mustard");
+                }
+                if(!mayo)
+                {
+                    special.Add("Hold Mayo");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

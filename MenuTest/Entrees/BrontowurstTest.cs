@@ -55,6 +55,65 @@ namespace MenuTest.Entrees
             bw.HoldOnion();
             Assert.DoesNotContain<string>("Onion", bw.Ingredients);
         }
-    }
 
+        [Fact]
+        public void HoldingBunShouldNotifySpecialChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Special", () =>
+            {
+                bw.HoldBun();
+            });
+        }
+
+        [Fact]
+        public void HoldingPeppersShouldNotifySpecialChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Special", () =>
+            {
+                bw.HoldPeppers();
+            });
+        }
+
+        [Fact]
+        public void HoldingOnionsShouldNotifySpecialChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Special", () =>
+            {
+                bw.HoldOnion();
+            });
+        }
+
+        [Fact]
+        public void HoldingBunShouldNotifyIngredientsChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Ingredients", () =>
+            {
+                bw.HoldBun();
+            });
+        }
+
+        [Fact]
+        public void HoldingPeppersShouldNotifyIngredientsChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Ingredients", () =>
+            {
+                bw.HoldPeppers();
+            });
+        }
+
+        [Fact]
+        public void HoldingOnionsShouldNotifyIngredientsChange()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, "Ingredients", () =>
+            {
+                bw.HoldOnion();
+            });
+        }
+    }
 }

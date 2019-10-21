@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
     /// This class creates the JurrasicJava drink and allows the user to choose if they want ice and what size they want,
     /// which affects calorie count and price.
     /// </summary>
-    public class JurassicJava : Drink, IMenuItem
+    public class JurassicJava : Drink
     {
         /// <summary>
         /// This private property allows the switch case to function based on a change of order size.
@@ -32,16 +32,22 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 0.59;
                         Calories = 2;
+                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Price");
                         break;
 
                     case Size.Medium:
                         Price = 0.99;
                         Calories = 4;
+                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Price");
                         break;
 
                     case Size.Large:
                         Price = 1.49;
                         Calories = 8;
+                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Price");
                         break;
                 }
             }
@@ -75,6 +81,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             this.Ice = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -83,6 +90,7 @@ namespace DinoDiner.Menu
         public void IsDecaf()
         {
             this.Decaf = true;
+            NotifyOfPropertyChanged("Description");
         }
 
         /// <summary>
@@ -121,6 +129,23 @@ namespace DinoDiner.Menu
         {
             Price = 0.59;
             Calories = 2;
+        }
+
+        /// <summary>
+        /// This method creates a ToString function for the special changes to the 
+        /// given menu item.
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice)
+                {
+                    special.Add("Add Ice");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

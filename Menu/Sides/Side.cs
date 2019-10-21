@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -11,7 +12,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// This abstract base class creates all the properties for the sides classes.
     /// </summary>
-    public abstract class Side : IMenuItem, IOrderItem
+    public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// This is the read-only list of ingredients.
@@ -39,6 +40,20 @@ namespace DinoDiner.Menu
         /// 
         /// </summary>
         public string[] Special { get; set; }
+
+        /// <summary>
+        /// This method sends a message to the program when a men u item property is changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// This method creates a new instance of the event argument when a property is changed.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Gets the ingredients list

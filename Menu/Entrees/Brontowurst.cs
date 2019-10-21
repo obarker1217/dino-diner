@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    /// <summary>C:\Users\obark\Source\Repos\dino-diner6\Menu\Entrees\PrehistoricPBJ.cs
+    /// <summary>
     /// This class creates the Brontowurst object and its menu specifications, including its 
     /// calories, price, and ingredients. It also lists which ingredients can be changed.
     /// </summary>
@@ -78,6 +78,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the peppers.
@@ -85,6 +87,8 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.peppers = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the onions.
@@ -92,8 +96,14 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onions = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
+        /// <summary>
+        /// This method creates a ToString function for the special changes to the 
+        /// given menu item.
+        /// </summary>
         public string[] Special
         {
             get

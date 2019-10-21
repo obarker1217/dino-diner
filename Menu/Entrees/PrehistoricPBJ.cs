@@ -84,6 +84,10 @@ namespace DinoDiner.Menu
             NotifyOfPropertyChanged("Special");
         }
 
+        /// <summary>
+        /// This method creates a ToString function for the special changes to the 
+        /// given menu item.
+        /// </summary>
         public new string[] Special
         {
             get

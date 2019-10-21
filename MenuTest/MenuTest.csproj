@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Remove="CretaceousComboTest.cs" />
+    <Compile Remove="Entrees\PlesiosaurusPattie.cs" />
   </ItemGroup>
 
   <ItemGroup>

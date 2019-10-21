@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -11,7 +12,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// This class gives general properties to all drinks. It is abstract so it can be overridden if need be.
     /// </summary>
-    public abstract class Drink : IMenuItem, IOrderItem
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// This is the read-only list of ingredients.
@@ -47,6 +48,20 @@ namespace DinoDiner.Menu
         public string[] Special { get; set; }
 
         /// <summary>
+        /// This method sends a message to the program when a men u item property is changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// This method creates a new instance of the event argument when a property is changed.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
         /// This string names a size for the ToString() override.
         /// </summary>
         public string SizeString
@@ -79,6 +94,7 @@ namespace DinoDiner.Menu
         public void HoldIce()
         {
             this.Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
     }
 }

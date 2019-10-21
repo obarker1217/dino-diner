@@ -32,16 +32,22 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 0.99;
                         Calories = 8;
+                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Price");
                         break;
 
                     case Size.Medium:
                         Price = 1.49;
                         Calories = 16;
+                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Price");
                         break;
 
                     case Size.Large:
                         Price = 1.99;
                         Calories = 32;
+                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Price");
                         break;
                 }
             }
@@ -101,6 +107,8 @@ namespace DinoDiner.Menu
         {
             this.Lemon = true;
             Ingredients.Add("Lemon");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -110,6 +118,8 @@ namespace DinoDiner.Menu
         {
             this.Sweet = true;
             this.Calories = this.Calories * 2;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Description");
             //Ingredients.Add("Cane Sugar");
         }
 
@@ -121,6 +131,8 @@ namespace DinoDiner.Menu
             this.Sweet = false;
             this.Calories = this.Calories / 2;
             Ingredients.Remove("Cane Sugar");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Description");
         }
 
         /// <summary>
@@ -131,6 +143,27 @@ namespace DinoDiner.Menu
             Price = 0.99;
             Calories = 8;
             Ice = true;
+        }
+
+        /// <summary>
+        /// This method creates a ToString function for the special changes to the 
+        /// given menu item.
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice)
+                {
+                    special.Add("Hold Ice");
+                }
+                if(Lemon)
+                {
+                    special.Add("Add Lemon");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

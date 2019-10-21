@@ -86,6 +86,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the pickles.
@@ -93,6 +95,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the ketchup.
@@ -100,6 +104,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// This method allows the user to remove the mustard.
@@ -107,6 +113,37 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
+        }
+
+        /// <summary>
+        /// This method creates a ToString function for the special changes to the 
+        /// given menu item.
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun)
+                {
+                    special.Add("Hold Whole Wheat Bun");
+                }
+                if (!pickle)
+                {
+                    special.Add("Hold Pickles");
+                }
+                if (!ketchup)
+                {
+                    special.Add("Hold Ketchup");
+                }
+                if(!mustard)
+                {
+                    special.Add("Hold Mustard");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

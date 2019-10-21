@@ -32,16 +32,19 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 0.10;
                         Calories = 0;
+                        NotifyOfPropertyChanged("Size");
                         break;
 
                     case Size.Medium:
                         Price = 0.10;
                         Calories = 0;
+                        NotifyOfPropertyChanged("Size");
                         break;
 
                     case Size.Large:
                         Price = 0.10;
                         Calories = 0;
+                        NotifyOfPropertyChanged("Size");
                         break;
                 }
             }
@@ -87,6 +90,8 @@ namespace DinoDiner.Menu
         {
             this.Lemon = true;
             Ingredients.Add("Lemon");
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -97,6 +102,27 @@ namespace DinoDiner.Menu
             Price = 0.10;
             Calories = 0;
             Ice = true;
+        }
+
+        /// <summary>
+        /// This method creates a ToString function for the special changes to the 
+        /// given menu item.
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice)
+                {
+                    special.Add("Hold Ice");
+                }
+                if (Lemon)
+                {
+                    special.Add("Add Lemon");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

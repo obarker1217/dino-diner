@@ -43,12 +43,12 @@ namespace DinoDiner.Menu
         public string[] Special { get; set; }
 
         /// <summary>
-        /// 
+        /// This method sends a message to the program when a men u item property is changed.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// 
+        /// This method creates a new instance of the event argument when a property is changed.
         /// </summary>
         /// <param name="propertyName"></param>
         protected void NotifyOfPropertyChanged(string propertyName)

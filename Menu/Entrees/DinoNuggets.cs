@@ -76,5 +76,24 @@ namespace DinoDiner.Menu
             this.Price += 0.25;
             this.Calories += 59;
         }
+
+        /// <summary>
+        /// This method creates a ToString function for the special changes to the 
+        /// given menu item.
+        /// </summary>
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                uint i = nuggetCount - 6;
+                if(nuggetCount > 6)
+                {
+                    special.Add(i + "Extra Nuggets");
+                }
+                return special.ToArray();
+            }
+           
+        } 
     }
 }
