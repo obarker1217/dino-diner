@@ -101,6 +101,8 @@ namespace MenuTest.Entrees
                     Assert.Equal("Hold Jelly", item);
                 });
         }
+        
+        // The follwing tests handle change notification.
 
         [Fact]
         public void HoldingPeanutButterShouldNotifySpecialChange()

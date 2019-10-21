@@ -162,5 +162,37 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Coffee", ingredients);
             Assert.Equal<int>(2, ingredients.Count);
         }
+
+        // The follwing tests handle change notification.
+
+        [Fact]
+        public void SpaceForCreamShouldNotifyDescriptionChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Description", () =>
+            {
+                coffee.LeaveSpaceForCream();
+            });
+        }
+
+        [Fact]
+        public void AddIceShouldNotifySpecialChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Special", () =>
+            {
+                coffee.AddIce();
+            });
+        }
+
+        [Fact]
+        public void DecafShouldNotifyDescriptionChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Description", () =>
+            {
+                coffee.IsDecaf();
+            });
+        }
     }
 }

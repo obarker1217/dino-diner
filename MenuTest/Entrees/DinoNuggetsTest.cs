@@ -85,5 +85,37 @@ namespace MenuTest.Entrees
             dn.AddNugget();
             Assert.Equal<uint>(dn.Calories, 59*9);
         }
+
+        //The following tests check event handling.
+
+        [Fact]
+        public void AddingNuggetShouldNotifyPriceChange()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Price", () =>
+            {
+                dn.AddNugget();
+            });
+        }
+
+        [Fact]
+        public void AddingNuggetShouldNotifyDescriptionChange()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Description", () =>
+            {
+                dn.AddNugget();
+            });
+        }
+
+        [Fact]
+        public void AddingNuggetShouldNotifySpecialChange()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.PropertyChanged(dn, "Special", () =>
+            {
+                dn.AddNugget();
+            });
+        }
     }
 }

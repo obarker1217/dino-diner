@@ -73,6 +73,7 @@ namespace DinoDiner.Menu
         public void LeaveSpaceForCream()
         {
             this.SpaceForCream = true;
+            NotifyOfPropertyChanged("Description");
         }
 
         /// <summary>

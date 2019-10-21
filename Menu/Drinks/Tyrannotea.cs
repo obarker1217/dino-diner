@@ -107,7 +107,6 @@ namespace DinoDiner.Menu
         {
             this.Lemon = true;
             Ingredients.Add("Lemon");
-            NotifyOfPropertyChanged("Ingredients");
             NotifyOfPropertyChanged("Special");
         }
 

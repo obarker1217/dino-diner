@@ -195,5 +195,67 @@ namespace MenuTest.Drinks
                 Assert.Equal<uint>(32, tea.Calories);
             }
         }
+
+        // The follwing tests handle change notification.
+
+        [Fact]
+        public void AddLemonShouldNotifySpecialChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () =>
+            {
+                tea.AddLemon();
+            });
+        }
+
+        [Fact]
+        public void HoldIceShouldNotifySpecialChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () =>
+            {
+                tea.HoldIce();
+            });
+        }
+
+        [Fact]
+        public void AddSweetenerShouldNotifyDescriptionChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Description", () =>
+            {
+                tea.AddSweetener();
+            });
+        }
+
+        [Fact]
+        public void RemoveSweetenerShouldNotifyDescriptionChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Description", () =>
+            {
+                tea.RemoveSweetener();
+            });
+        }
+
+        [Fact]
+        public void AddSweetenerShouldNotifyIngredientsChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Ingredients", () =>
+            {
+                tea.AddSweetener();
+            });
+        }
+
+        [Fact]
+        public void RemoveSweetenerShouldNotifyIngredientsChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Ingredients", () =>
+            {
+                tea.RemoveSweetener();
+            });
+        }
     }
 }
