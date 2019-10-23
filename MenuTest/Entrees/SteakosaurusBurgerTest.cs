@@ -65,6 +65,97 @@ namespace MenuTest.Entrees
             Assert.DoesNotContain<string>("Mustard", sb.Ingredients);
         }
 
+        // These tests check Descriptions and Special.
+
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.Equal("Steakosaurus Burger", sb.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.Empty(sb.Special);
+        }
+
+        [Fact]
+        public void HoldPickleShouldAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldPickle();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Pickles", item);
+                });
+        }
+
+        [Fact]
+        public void HoldBunShouldAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Whole Wheat Bun", item);
+                });
+        }
+
+        [Fact]
+        public void HoldKetchupShouldAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldKetchup();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                });
+        }
+
+        [Fact]
+        public void HoldMustardShouldAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldMustard();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                });
+        }
+
+        [Fact]
+        public void HoldBunAndPicklesAndKetchupAndMustardShouldAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            sb.HoldPickle();
+            sb.HoldKetchup();
+            sb.HoldMustard();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Whole Wheat Bun", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Pickles", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                });
+        }
+
         //The following tests check event handling.
 
         [Fact]

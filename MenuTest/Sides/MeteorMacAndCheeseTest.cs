@@ -83,5 +83,110 @@ namespace MenuTest.Sides
             mmc.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, mmc.Size);
         }
+
+        // These tests check Descriptions and Special.
+
+        [Fact]
+        public void DefaultDescriptionShouldBeCorrect()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.Equal("Small Meteor Mac and Cheese", mmc.Description);
+        }
+
+        [Fact]
+        public void SmallDescriptionShouldBeCorrect()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            mmc.Size = Size.Medium;
+            mmc.Size = Size.Small;
+            Assert.Equal("Small Meteor Mac and Cheese", mmc.Description);
+        }
+
+        [Fact]
+        public void MediumDescriptionShouldBeCorrect()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            mmc.Size = Size.Medium;
+            Assert.Equal("Medium Meteor Mac and Cheese", mmc.Description);
+        }
+
+        [Fact]
+        public void LargeDescriptionShouldBeCorrect()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            mmc.Size = Size.Large;
+            Assert.Equal("Large Meteor Mac and Cheese", mmc.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.Empty(mmc.Special);
+        }
+
+        // The follwing tests handle change notification.
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyDescriptionChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Description", () =>
+            {
+                mmc.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyDescriptionChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Description", () =>
+            {
+                mmc.Size = Size.Medium;
+                mmc.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyDescriptionChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Description", () =>
+            {
+                mmc.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyPriceChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Description", () =>
+            {
+                mmc.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyPriceChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Description", () =>
+            {
+                mmc.Size = Size.Medium;
+                mmc.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyPriceChange()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Description", () =>
+            {
+                mmc.Size = Size.Large;
+            });
+        }
     }
 }

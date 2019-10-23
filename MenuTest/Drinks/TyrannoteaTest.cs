@@ -196,7 +196,151 @@ namespace MenuTest.Drinks
             }
         }
 
+        // These tests check Descriptions and Special.
+
+        [Fact]
+        public void DefaultDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.Equal("Small Tyrannotea", tea.Description);
+        }
+
+        [Fact]
+        public void SmallDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Medium;
+            tea.Size = Size.Small;
+            Assert.Equal("Small Tyrannotea", tea.Description);
+        }
+
+        [Fact]
+        public void MediumDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Medium;
+            Assert.Equal("Medium Tyrannotea", tea.Description);
+        }
+
+        [Fact]
+        public void LargeDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Size = Size.Large;
+            Assert.Equal("Large Tyrannotea", tea.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.Empty(tea.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.HoldIce();
+            Assert.Collection<string>(tea.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                });
+        }
+
+        [Fact]
+        public void AddLemonShouldAddToSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            Assert.Collection<string>(tea.Special,
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                });
+        }
+
+        [Fact]
+        public void AddIceAndSpaceForCreamShouldAddToSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.HoldIce();
+            tea.AddLemon();
+            Assert.Collection<string>(tea.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                });
+        }
+
         // The follwing tests handle change notification.
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyDescriptionChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Description", () =>
+            {
+                tea.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyDescriptionChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Description", () =>
+            {
+                tea.Size = Size.Medium;
+                tea.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyDescriptionChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Description", () =>
+            {
+                tea.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyPriceChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Price", () =>
+            {
+                tea.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyPriceChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Price", () =>
+            {
+                tea.Size = Size.Medium;
+                tea.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyPriceChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Description", () =>
+            {
+                tea.Size = Size.Large;
+            });
+        }
 
         [Fact]
         public void AddLemonShouldNotifySpecialChange()

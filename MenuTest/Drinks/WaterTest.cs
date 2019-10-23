@@ -148,5 +148,140 @@ namespace MenuTest.Drinks
             Water water = new Water();
             Assert.Contains("Water", water.Ingredients);
         }
+
+        // These tests check Descriptions and Special.
+
+        [Fact]
+        public void DefaultDescriptionShouldBeCorrect()
+        {
+            Water water = new Water();
+            Assert.Equal("Small Water", water.Description);
+        }
+
+        [Fact]
+        public void SmallDescriptionShouldBeCorrect()
+        {
+            Water water = new Water();
+            water.Size = Size.Medium;
+            water.Size = Size.Small;
+            Assert.Equal("Small Water", water.Description);
+        }
+
+        [Fact]
+        public void MediumDescriptionShouldBeCorrect()
+        {
+            Water water = new Water();
+            water.Size = Size.Medium;
+            Assert.Equal("Medium Water", water.Description);
+        }
+
+        [Fact]
+        public void LargeDescriptionShouldBeCorrect()
+        {
+            Water water = new Water();
+            water.Size = Size.Large;
+            Assert.Equal("Large Water", water.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            Water water = new Water();
+            Assert.Empty(water.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            Assert.Collection<string>(water.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                });
+        }
+
+        [Fact]
+        public void AddLemonShouldAddToSpecial()
+        {
+            Water water = new Water();
+            water.AddLemon();
+            Assert.Collection<string>(water.Special,
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                });
+        }
+
+        [Fact]
+        public void AddIceAndSpaceForCreamShouldAddToSpecial()
+        {
+            Water water = new Water();
+            water.HoldIce();
+            water.AddLemon();
+            Assert.Collection<string>(water.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                });
+        }
+
+        // The follwing tests handle change notification.
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyDescriptionChange()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Description", () =>
+            {
+                water.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyDescriptionChange()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Description", () =>
+            {
+                water.Size = Size.Medium;
+                water.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyDescriptionChange()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Description", () =>
+            {
+                water.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void AddLemonShouldNotifySpecialChange()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Special", () =>
+            {
+                water.AddLemon();
+            });
+        }
+
+        [Fact]
+        public void HoldIceShouldNotifySpecialChange()
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Special", () =>
+            {
+                water.HoldIce();
+            });
+        }
     }
 }

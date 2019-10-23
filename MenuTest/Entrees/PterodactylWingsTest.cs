@@ -30,5 +30,13 @@ namespace MenuTest.Entrees
             Assert.Equal<int>(2, ingredients.Count);
         }
 
+        // These tests check Descriptions and Special.
+
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            PterodactylWings pw = new PterodactylWings();
+            Assert.Equal("Pterodactyl Wings", pw.Description);
+        }
     }
 }

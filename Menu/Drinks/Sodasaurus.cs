@@ -69,22 +69,22 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 1.50;
                         Calories = 112;
-                        NotifyOfPropertyChanged("Size");
                         NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Description");
                         break;
 
                     case Size.Medium:
                         Price = 2.00;
                         Calories = 156;
-                        NotifyOfPropertyChanged("Size");
                         NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Description");
                         break;
 
                     case Size.Large:
                         Price = 2.50;
                         Calories = 208;
-                        NotifyOfPropertyChanged("Size");
                         NotifyOfPropertyChanged("Price");
+                        NotifyOfPropertyChanged("Description");
                         break;
                 }
             }
@@ -108,9 +108,11 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
-        /// 
+        /// This string sets the ToString() override output.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// A string message is returned.
+        /// </returns>
         public override string ToString()
         {
             return SizeString + " " + FlavorString + " Sodasaurus";

@@ -163,6 +163,124 @@ namespace MenuTest.Drinks
             Assert.Equal<int>(2, ingredients.Count);
         }
 
+        // These tests check Descriptions and Special.
+
+        [Fact]
+        public void DefaultDescriptionShouldBeCorrect()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.Equal("Small Jurassic Java", coffee.Description);
+        }
+
+        [Fact]
+        public void DefaultDecafDescriptionShouldBeCorrect()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.Decaf = true;
+            Assert.Equal("Small Decaf Jurassic Java", coffee.Description);
+        }
+
+        [Fact]
+        public void SmallDescriptionShouldBeCorrect()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.Size = Size.Medium;
+            coffee.Size = Size.Small;
+            Assert.Equal("Small Jurassic Java", coffee.Description);
+        }
+
+        [Fact]
+        public void SmallDecafDescriptionShouldBeCorrect()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.Decaf = true;
+            coffee.Size = Size.Medium;
+            coffee.Size = Size.Small;
+            Assert.Equal("Small Decaf Jurassic Java", coffee.Description);
+        }
+
+        [Fact]
+        public void MediumDescriptionShouldBeCorrect()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.Size = Size.Medium;
+            Assert.Equal("Medium Jurassic Java", coffee.Description);
+        }
+
+        [Fact]
+        public void MediumDecafDescriptionShouldBeCorrect()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.Decaf = true;
+            coffee.Size = Size.Medium;
+            Assert.Equal("Medium Decaf Jurassic Java", coffee.Description);
+        }
+
+        [Fact]
+        public void LargeDescriptionShouldBeCorrect()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.Size = Size.Large;
+            Assert.Equal("Large Jurassic Java", coffee.Description);
+        }
+
+        [Fact]
+        public void LargeDecafDescriptionShouldBeCorrect()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.Decaf = true;
+            coffee.Size = Size.Large;
+            Assert.Equal("Large Decaf Jurassic Java", coffee.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.Empty(coffee.Special);
+        }
+
+        [Fact]
+        public void AddIceShouldAddToSpecial()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.AddIce();
+            Assert.Collection<string>(coffee.Special,
+                item =>
+                {
+                    Assert.Equal("Add Ice", item);
+                });
+        }
+
+        [Fact]
+        public void SPaceForCreamShouldAddToSpecial()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.LeaveSpaceForCream();
+            Assert.Collection<string>(coffee.Special,
+                item =>
+                {
+                    Assert.Equal("Add Space For Cream", item);
+                });
+        }
+
+        [Fact]
+        public void AddIceAndSpaceForCreamShouldAddToSpecial()
+        {
+            JurassicJava coffee = new JurassicJava();
+            coffee.AddIce();
+            coffee.LeaveSpaceForCream();
+            Assert.Collection<string>(coffee.Special,
+                item =>
+                {
+                    Assert.Equal("Add Ice", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Add Space For Cream", item);
+                });
+        }
+
         // The follwing tests handle change notification.
 
         [Fact]
@@ -192,6 +310,68 @@ namespace MenuTest.Drinks
             Assert.PropertyChanged(coffee, "Description", () =>
             {
                 coffee.IsDecaf();
+            });
+        }
+      
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyDescriptionChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Description", () =>
+            {
+                coffee.Size = Size.Medium;                
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyDescriptionChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Description", () =>
+            {
+                coffee.Size = Size.Medium;
+                coffee.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyDescriptionChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Description", () =>
+            {
+                coffee.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToMediumShouldNotifyPriceChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Description", () =>
+            {
+                coffee.Size = Size.Medium;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToSmallShouldNotifyPriceChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Description", () =>
+            {
+                coffee.Size = Size.Medium;
+                coffee.Size = Size.Small;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeToLargeShouldNotifyPriceChange()
+        {
+            JurassicJava coffee = new JurassicJava();
+            Assert.PropertyChanged(coffee, "Description", () =>
+            {
+                coffee.Size = Size.Large;
             });
         }
     }

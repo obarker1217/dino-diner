@@ -18,7 +18,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// This uint keeps track of how many dino nuggets are on a given order.
         /// </summary>
-        private uint nuggetCount = 6;
+        public uint nuggetCount = 6;
 
         /// <summary>
         /// This double has a getter and a setter to decide the price of the menu item.
@@ -92,7 +92,7 @@ namespace DinoDiner.Menu
                 uint i = nuggetCount - 6;
                 if(nuggetCount > 6)
                 {
-                    special.Add(i + "Extra Nuggets");
+                    special.Add(i + " Extra Nuggets");
                 }
                 return special.ToArray();
             }

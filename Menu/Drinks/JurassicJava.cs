@@ -32,21 +32,21 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 0.59;
                         Calories = 2;
-                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Description");
                         NotifyOfPropertyChanged("Price");
                         break;
 
                     case Size.Medium:
                         Price = 0.99;
                         Calories = 4;
-                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Description");
                         NotifyOfPropertyChanged("Price");
                         break;
 
                     case Size.Large:
                         Price = 1.49;
                         Calories = 8;
-                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Description");
                         NotifyOfPropertyChanged("Price");
                         break;
                 }
@@ -144,6 +144,10 @@ namespace DinoDiner.Menu
                 if (Ice)
                 {
                     special.Add("Add Ice");
+                }
+                if(SpaceForCream)
+                {
+                    special.Add("Add Space For Cream");
                 }
                 return special.ToArray();
             }

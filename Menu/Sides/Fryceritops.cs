@@ -33,21 +33,21 @@ namespace DinoDiner.Menu
                     case Size.Small:
                         Price = 0.99;
                         Calories = 222;
-                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Description");
                         NotifyOfPropertyChanged("Price");
                         break;
 
                     case Size.Medium:
                         Price = 1.45;
                         Calories = 365;
-                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Description");
                         NotifyOfPropertyChanged("Price");
                         break;
 
                     case Size.Large:
                         Price = 1.95;
                         Calories = 480;
-                        NotifyOfPropertyChanged("Size");
+                        NotifyOfPropertyChanged("Description");
                         NotifyOfPropertyChanged("Price");
                         break;
                 }
