@@ -16,7 +16,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
@@ -32,14 +34,20 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        /// <summary>
-        /// This tracks whenever a new page is changed to inside the main window.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Frame_Navigated(object sender, NavigationEventArgs e)
+        private void PassDataContentToPage()
+        {
+            if(OrderUI.Content is Page page)
+            {
+                page.DataContext = OrderUI.DataContext;
+
+            }
+        }
+
+        private void OnLoadCompletedFryceritops(object sender, NavigationEventArgs args)
         {
 
-        }
+
+            PassDataContentToPage();
+        } 
     }
 }
