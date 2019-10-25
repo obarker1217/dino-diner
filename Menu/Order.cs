@@ -8,19 +8,26 @@ using System.Text;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 
-namespace DinoDiner.Menu
+namespace DinoDiner.Menu 
 {
     /// <summary>
     /// This class creates the user's running order and calculates the subtotal, 
     /// tax, and final total.
     /// </summary>
-    public class Order
+    public class Order : INotifyPropertyChanged
     {
         /// <summary>
         /// This ObservableCollections contains the items on the order.
         /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; set; }
-            = new ObservableCollection<IOrderItem>();
+        private List<IOrderItem> items;
+
+        public IOrderItem [] Items
+        {
+            get
+            {
+                return items.ToArray();
+            }
+        }
 
         /// <summary>
         /// This is the oweb subtotal. It cannot be negative.
@@ -30,11 +37,11 @@ namespace DinoDiner.Menu
             get
             {
                 double subtotal = 0;
-                for(int i = 0; i < Items.Count; i++)
+                for(int i = 0; i < items.Count; i++)
                 {
-                    if(Items[i].Price > 0)
+                    if(items[i].Price > 0)
                     {
-                        subtotal += Items[i].Price;
+                        subtotal += items[i].Price;
                     }
                     else
                     {
@@ -70,6 +77,33 @@ namespace DinoDiner.Menu
             {
                 return SubtotalCost + SalesTaxCost;
             }
+        }
+
+        public Order()
+        {
+            items = new List<IOrderItem>();
+        }
+
+        public void Add(IOrderItem item)
+        {
+            item.PropertyChanged += OnCollectionChanged;
+            items.Add(item);
+            OnCollectionChanged(this, new EventArgs());
+        }
+
+        public bool Remove(IOrderItem item)
+        {
+            return items.Remove(item);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnCollectionChanged(object sender, EventArgs args)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal Cost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sales Tax Cost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total Cost"));
         }
     }
 }

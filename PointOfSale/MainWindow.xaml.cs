@@ -1,5 +1,5 @@
 ﻿/* MainWindow.xaml.cs
- * AUthor: Owen Barker
+ * Athor: Owen Barker
  */
 
 using System;
@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
+
 namespace PointOfSale
 {
     /// <summary>
@@ -32,6 +33,8 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
+            OrderUI.Navigate(new MenuCategorySelection());
+            OrderConrol.NavigationService = OrderUI.NavigationService();
         }
 
         private void PassDataContentToPage()
@@ -39,15 +42,22 @@ namespace PointOfSale
             if(OrderUI.Content is Page page)
             {
                 page.DataContext = OrderUI.DataContext;
-
             }
         }
 
-        private void OnLoadCompletedFryceritops(object sender, NavigationEventArgs args)
+        private void OrderUI_LoadCompleted(object sender, NavigationEventArgs args)
         {
-
-
             PassDataContentToPage();
         } 
+
+        private void OrderUI_DataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            PassDataContentToPage();
+        }
+
+        private void Frame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }

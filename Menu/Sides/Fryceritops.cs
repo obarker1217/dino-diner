@@ -27,6 +27,7 @@ namespace DinoDiner.Menu
         {
             set
             {
+                // Try changing properties after the switch statement.
                 size = value;
                 switch (size)
                 {

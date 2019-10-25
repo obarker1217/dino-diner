@@ -22,6 +22,17 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// This initializes the side selection page.
+        /// </summary>
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            this.side = side;
+        }
+
+        private Side side;
+
+        /// <summary>
         /// This gives functionality to the Fryceritops button.
         /// </summary>
         /// <param name="sender"></param>
@@ -30,7 +41,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                Side = new Fryceritops();
+                side = new Fryceritops();
                 order.Add(new Fryceritops());
             }
         }
@@ -42,7 +53,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void MeteorMacAndCheeseButton(object sender, RoutedEventArgs e)
         {
-
+            if (DataContext is Order order)
+            {
+                side = new MeteorMacAndCheese();
+                order.Add(new MeteorMacAndCheese());
+            }
         }
 
         /// <summary>
@@ -52,7 +67,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void MezzorellaSticksButton(object sender, RoutedEventArgs e)
         {
-
+            if (DataContext is Order order)
+            {
+                side = new MezzorellaSticks();
+                order.Add(new MezzorellaSticks());
+            }
         }
 
         /// <summary>
@@ -62,7 +81,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void TriceritotsButton(object sender, RoutedEventArgs e)
         {
-
+            if (DataContext is Order order)
+            {
+                side = new Triceritots();
+                order.Add(new Triceritots());
+            }
         }
 
         /// <summary>
