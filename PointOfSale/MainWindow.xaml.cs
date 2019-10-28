@@ -59,5 +59,10 @@ namespace PointOfSale
         {
 
         }
+
+        private void OrderList_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
