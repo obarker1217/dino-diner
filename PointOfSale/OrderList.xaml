@@ -35,8 +35,9 @@
                             <Button Grid.Column="1" Click="RemoveItem" Background="Red" Foreground="White">
                                 X
                             </Button>
-                            <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
+
                         </Grid>
+                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

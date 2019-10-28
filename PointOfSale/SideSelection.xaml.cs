@@ -14,6 +14,11 @@ namespace PointOfSale
     public partial class SideSelection : Page
     {
         /// <summary>
+        /// 
+        /// </summary>
+        private Side side;
+        
+        /// <summary>
         /// This initializes the side selection page.
         /// </summary>
         public SideSelection()
@@ -29,8 +34,6 @@ namespace PointOfSale
             InitializeComponent();
             this.side = side;
         }
-
-        private Side side;
 
         /// <summary>
         /// This gives functionality to the Fryceritops button.

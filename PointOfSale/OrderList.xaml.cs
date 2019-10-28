@@ -30,6 +30,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public NavigationService navigationService { get; set; }
+
         private void RemoveItem(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
@@ -48,7 +53,5 @@ namespace PointOfSale
         {
             
         }
-    }
-
-    
+    }    
 }

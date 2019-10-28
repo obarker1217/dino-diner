@@ -7,7 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
-        <local:OrderList DockPanel.Dock="Right" Width="200" Background="LightSteelBlue" Loaded="OrderList_Loaded"></local:OrderList>
+        <local:OrderList x:Name="OrderControl" DockPanel.Dock="Right" Width="200" Background="LightSteelBlue" Loaded="OrderList_Loaded"></local:OrderList>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Click="OnReturnToCategorySelection" Grid.Column="1">
+                Return to category selection
+            </Button>
+        </Grid>
         <Frame Name="OrderUI" Source="MenuCategorySelection.xaml" LoadCompleted="OrderUI_LoadCompleted" DataContextChanged="OrderUI_DataContextChanged"></Frame>
     </DockPanel>
 </Window>

@@ -16,8 +16,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DinoDiner.Menu;
 
 namespace PointOfSale
@@ -34,7 +32,10 @@ namespace PointOfSale
         {
             InitializeComponent();
             OrderUI.Navigate(new MenuCategorySelection());
-            OrderConrol.NavigationService = OrderUI.NavigationService();
+            Order order = new Order();
+            DataContext = order;
+            //order.Add(new Triceritots());
+            OrderControl.navigationService = OrderUI.NavigationService;
         }
 
         private void PassDataContentToPage()
@@ -63,6 +64,11 @@ namespace PointOfSale
         private void OrderList_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void OnReturnToCategorySelection(object sender, RoutedEventArgs args)
+        {
+            OrderUI.NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }
