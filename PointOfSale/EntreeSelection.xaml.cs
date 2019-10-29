@@ -40,7 +40,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void BrontowurstButton(object sender, RoutedEventArgs e)
         {
-            
+            if (DataContext is Order order)
+            {
+                Brontowurst bw = new Brontowurst();
+                order.Add(bw);
+                NavigationService.Navigate(new CustomizeBrontowurst(bw));
+            }
         }
 
         /// <summary>
@@ -50,7 +55,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void DinoNuggetsButton(object sender, RoutedEventArgs e)
         {
-            
+            if (DataContext is Order order)
+            {
+                DinoNuggets nugs = new DinoNuggets();
+                order.Add(nugs);
+                NavigationService.Navigate(new CustomizeDinoNuggets(nugs));
+            }
         }
 
         /// <summary>
@@ -75,7 +85,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void PterodactylWingsButton(object sender, RoutedEventArgs e)
         {
-            
+            if (DataContext is Order order)
+            {
+                PterodactylWings wings = new PterodactylWings();
+                order.Add(wings);
+            }
         }
 
         /// <summary>
@@ -85,7 +99,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SteakosarusButton(object sender, RoutedEventArgs e)
         {
-            
+            if (DataContext is Order order)
+            {
+                SteakosaurusBurger sb = new SteakosaurusBurger();
+                order.Add(sb);
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(sb));
+            }
         }
 
         /// <summary>
@@ -95,7 +114,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void TRexKingButton(object sender, RoutedEventArgs e)
         {
-            
+            if (DataContext is Order order)
+            {
+                TRexKingBurger trex = new TRexKingBurger();
+                order.Add(trex);
+                NavigationService.Navigate(new CustomizeTRexKingBurger(trex));
+            }
         }
 
         /// <summary>
@@ -105,7 +129,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void VelociwrapButton(object sender, RoutedEventArgs e)
         {
-            
+            if (DataContext is Order order)
+            {
+                VelociWrap vw = new VelociWrap();
+                order.Add(vw);
+                NavigationService.Navigate(new CustomizeVelociWrap(vw));
+            }
         }
     }
 }
