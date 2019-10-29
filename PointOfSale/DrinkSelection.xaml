@@ -54,7 +54,7 @@
         <ToggleButton VerticalContentAlignment="Center" Checked="DecafButton" Margin="0,0,0,0" IsEnabled="False">
             Decaf
         </ToggleButton>
-        <ToggleButton VerticalContentAlignment="Center" Checked="FlavorButton" Margin="0,0,0,0" IsEnabled="False">
+        <ToggleButton VerticalContentAlignment="Center" Checked="FlavorButton" Margin="0,0,0,0">
             Flavor
         </ToggleButton>
 

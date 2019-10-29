@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -24,11 +25,14 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
+        private Sodasaurus soda = new Sodasaurus();
+
         /// <summary>
         /// This initializes the flavor selection page.
         /// </summary>
-        public FlavorSelection()
+        public FlavorSelection(Sodasaurus soda)
         {
+            this.soda = soda;
             InitializeComponent();
         }
 
@@ -39,7 +43,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CherryButton(object sender, RoutedEventArgs e)
         {
-
+            this.soda.Flavor = SodasaurusFlavor.Cherry;
+            NavigationService.GoBack();
         }
 
         /// <summary>
@@ -49,7 +54,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void ChocolateButton(object sender, RoutedEventArgs e)
         {
-
+            this.soda.Flavor = SodasaurusFlavor.Chocolate;
+            NavigationService.GoBack();
         }
 
         /// <summary>
@@ -59,7 +65,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void ColaButton(object sender, RoutedEventArgs e)
         {
-
+            this.soda.Flavor = SodasaurusFlavor.Cola;
+            NavigationService.GoBack();
         }
 
         /// <summary>
@@ -69,7 +76,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void LimeButton(object sender, RoutedEventArgs e)
         {
-
+            this.soda.Flavor = SodasaurusFlavor.Lime;
+            NavigationService.GoBack();
         }
 
         /// <summary>
@@ -79,7 +87,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void OrangeButton(object sender, RoutedEventArgs e)
         {
-
+            this.soda.Flavor = SodasaurusFlavor.Orange;
+            NavigationService.GoBack();
         }
 
         /// <summary>
@@ -89,7 +98,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void RootBeerButton(object sender, RoutedEventArgs e)
         {
-
+            this.soda.Flavor = SodasaurusFlavor.RootBeer;
+            NavigationService.GoBack();
         }
 
         /// <summary>
@@ -99,7 +109,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void VanillaButton(object sender, RoutedEventArgs e)
         {
-
+            this.soda.Flavor = SodasaurusFlavor.Vanilla;
+            NavigationService.GoBack();
         }
     }
 }

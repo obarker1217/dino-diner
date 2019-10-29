@@ -16,14 +16,36 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
+using Size = DinoDiner.Menu.Size;
+using System.ComponentModel;
 
 namespace PointOfSale
 {
     /// <summary>
     /// Interaction logic for DrinkSelection.xaml
     /// </summary>
-    public partial class DrinkSelection : Page
+    public partial class DrinkSelection : Page, INotifyPropertyChanged
     {
+        /// <summary>
+        /// This method sends a message to the program when a men u item property is changed.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// This method creates a new instance of the event argument when a property is changed.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private Drink drink;
+
         /// <summary>
         /// This constructor initializes the page.
         /// </summary>
@@ -39,7 +61,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void TyrannoteaButton(object sender, RoutedEventArgs e)
         {
-            //SweetButton.IsChecked = true;
+            if (DataContext is Order order)
+            {
+                drink = new Tyrannotea();
+                order.Add(new Tyrannotea());
+            }
         }
 
         /// <summary>
@@ -49,7 +75,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void JurassicJavaButton(object sender, RoutedEventArgs e)
         {
-            //DecafButton.IsChecked = true;
+            if (DataContext is Order order)
+            {
+                drink = new JurassicJava();
+                order.Add(new JurassicJava());
+            }
         }
 
         /// <summary>
@@ -59,7 +89,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SodasaurusButton(object sender, RoutedEventArgs e)
         {
-            //FlavorButton.IsChecked = true;
+            if (DataContext is Order order)
+            {
+                drink = new Sodasaurus();
+                order.Add(new Sodasaurus());
+            }
         }
 
         /// <summary>
@@ -69,7 +103,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void WaterButton(object sender, RoutedEventArgs e)
         {
-
+            if (DataContext is Order order)
+            {
+                drink = new Water();
+                order.Add(new Water());
+            }
         }
 
         /// <summary>
@@ -79,7 +117,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddLemonButton(object sender, RoutedEventArgs e)
         {
-
+            if(DataContext is Water || DataContext is Tyrannotea)
+            {
+                //this.drink.AddLemon();
+            }
         }
 
         /// <summary>
@@ -99,7 +140,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SmallRadioButton(object sender, RoutedEventArgs e)
         {
-
+            this.drink.Size = Size.Small;
+            /*
+            NotifyOfPropertyChanged("Size");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Description");
+            */
         }
 
         /// <summary>
@@ -109,7 +155,13 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void MediumRadioButton(object sender, RoutedEventArgs e)
         {
-
+            
+            this.drink.Size = Size.Medium;
+            /*
+            NotifyOfPropertyChanged("Size");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Description");
+            */
         }
 
         /// <summary>
@@ -119,7 +171,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void LargeRadioButton(object sender, RoutedEventArgs e)
         {
-
+            this.drink.Size = Size.Large;
+            /*
+            NotifyOfPropertyChanged("Size");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Description");
+            */
         }
 
         /// <summary>
@@ -149,7 +206,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void FlavorButton(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            NavigationService.Navigate(new FlavorSelection((Sodasaurus)drink));
         }
     }
 }

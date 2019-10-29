@@ -51,7 +51,13 @@ namespace PointOfSale
 
         private void OnSelectionChanged(object sender, SelectedCellsChangedEventArgs args)
         {
-            
+            if(DataContext is Order order)
+            {
+                if(sender is FrameworkElement element)
+                {
+
+                }
+            }
         }
     }    
 }

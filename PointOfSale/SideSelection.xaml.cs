@@ -98,7 +98,8 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SmallRadioButton(object sender, RoutedEventArgs e)
         {
-
+            //SideSelection(DinoDiner.Menu.Size)
+            NavigationService.GoBack();
         }
 
         /// <summary>
@@ -109,6 +110,7 @@ namespace PointOfSale
         private void MediumRadioButton(object sender, RoutedEventArgs e)
         {
 
+            NavigationService.GoBack();
         }
 
         /// <summary>
@@ -119,6 +121,7 @@ namespace PointOfSale
         private void LargeRadioButton(object sender, RoutedEventArgs e)
         {
 
+            NavigationService.GoBack();
         }
     }
 }
