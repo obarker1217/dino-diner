@@ -26,11 +26,25 @@ namespace PointOfSale
     public partial class EntreeSelection : Page
     {
         /// <summary>
+        /// This is the private backing variable for the non-empty constructor.
+        /// </summary>
+        private Entree entree;
+
+        /// <summary>
         /// This initializes the page that allows the user to choose an entree.
         /// </summary>
         public EntreeSelection()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// This initializes the entree selection page.
+        /// </summary>
+        public EntreeSelection(Entree entree)
+        {
+            InitializeComponent();
+            this.entree = entree;
         }
 
         /// <summary>

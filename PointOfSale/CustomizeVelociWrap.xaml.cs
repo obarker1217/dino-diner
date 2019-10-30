@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* CustomizeVelociWrap.xaml.cs
+ * Author: Owen Barker
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +25,15 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeVelociWrap : Page
     {
+        /// <summary>
+        /// This is the used object.
+        /// </summary>
         private VelociWrap vw = new VelociWrap();
 
+        /// <summary>
+        /// This constructor creates a non-empty instance.
+        /// </summary>
+        /// <param name="vw"></param>
         public CustomizeVelociWrap(VelociWrap vw)
         {
             InitializeComponent();
@@ -44,6 +55,11 @@ namespace PointOfSale
             this.vw.HoldCheese();
         }
 
+        /// <summary>
+        /// This method sends the user back a page when they click the done button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnDone(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();

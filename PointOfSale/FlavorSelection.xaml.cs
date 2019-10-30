@@ -25,6 +25,9 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
+        /// <summary>
+        /// This is the private backing variable for the flavor.
+        /// </summary>
         private Sodasaurus soda = new Sodasaurus();
 
         /// <summary>

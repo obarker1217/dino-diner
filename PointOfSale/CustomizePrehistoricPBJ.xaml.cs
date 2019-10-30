@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* CustomizePrehistoricPBJ.xaml.cs
+ * Author: Owen Barker
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,24 +25,46 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizePrehistoricPBJ : Page
     {
+        /// <summary>
+        /// This is the used object.
+        /// </summary>
         private PrehistoricPBJ pbj;
 
+        /// <summary>
+        /// This constructor creates a non-empty instance.
+        /// </summary>
+        /// <param name="vw"></param>
         public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
         {
             InitializeComponent();
             this.pbj = pbj;
         }
 
+        /// <summary>
+        /// This button holds the peanut butter.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnHoldPeanutButter(object sender, RoutedEventArgs e)
         {
             this.pbj.HoldPeanutButter();
         }
 
+        /// <summary>
+        /// This button holds the jelly.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnHoldJelly(object sender, RoutedEventArgs e)
         {
             this.pbj.HoldJelly();
         }
 
+        /// <summary>
+        /// This method sends the user back a page when they click the done button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnDone(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();

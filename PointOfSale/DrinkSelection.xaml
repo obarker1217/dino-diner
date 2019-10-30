@@ -48,20 +48,20 @@
             Water
         </Button>
 
-        <ToggleButton VerticalContentAlignment="Center" Checked="SweetButton" Margin="0,0,0,0" IsEnabled="False">
+        <ToggleButton Name="sweetButton" VerticalContentAlignment="Center" Checked="SweetButton" Margin="0,0,0,0" IsEnabled="False">
             Sweet
         </ToggleButton>
-        <ToggleButton VerticalContentAlignment="Center" Checked="DecafButton" Margin="0,0,0,0" IsEnabled="False">
+        <ToggleButton Name="decafButton" VerticalContentAlignment="Center" Checked="DecafButton" Margin="0,0,0,0" IsEnabled="False">
             Decaf
         </ToggleButton>
-        <ToggleButton VerticalContentAlignment="Center" Checked="FlavorButton" Margin="0,0,0,0">
+        <ToggleButton Name="flavorButton" VerticalContentAlignment="Center" Checked="FlavorButton" Margin="0,0,0,0" IsEnabled="False">
             Flavor
         </ToggleButton>
 
-        <Button VerticalContentAlignment="Center" Margin="0,0,0,0" Click="AddLemonButton">
+        <Button Name="addLemonButton" VerticalContentAlignment="Center" Margin="0,0,0,0" Click="AddLemonButton">
             Add Lemon
         </Button>
-        <Button VerticalContentAlignment="Center" Margin="0,0,0,0" Click="HoldIceButton">
+        <Button Name="holdIceButton" VerticalContentAlignment="Center" Margin="0,0,0,0" Click="HoldIceButton">
             Hold Ice
         </Button>
 
@@ -75,6 +75,8 @@
             Large
         </RadioButton>
 
-
+        <Button Name="doneButton" VerticalContentAlignment="Center" Margin="0,0,0,0" Click="OnDone">
+            Done
+        </Button>
     </WrapPanel>
 </Page>

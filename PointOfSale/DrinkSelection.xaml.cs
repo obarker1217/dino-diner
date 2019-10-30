@@ -42,7 +42,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// 
+        /// This is the private backing variable for the non-empty constructor.
         /// </summary>
         private Drink drink;
 
@@ -55,6 +55,16 @@ namespace PointOfSale
         }
 
         /// <summary>
+        /// This initializes the drink selection page.
+        /// </summary>
+        public DrinkSelection(Drink drink)
+        {
+            InitializeComponent();
+            this.drink = drink;
+        }
+
+
+        /// <summary>
         /// This gives functionality to the Tyrannotea button.
         /// </summary>
         /// <param name="sender"></param>
@@ -64,7 +74,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Tyrannotea();
-                order.Add(new Tyrannotea());
+                order.Add(drink);
+                sweetButton.IsEnabled = true;
+                holdIceButton.IsEnabled = true;
+                decafButton.IsEnabled = false;
+                flavorButton.IsEnabled = false;
+                addLemonButton.IsEnabled = true;
             }
         }
 
@@ -78,7 +93,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new JurassicJava();
-                order.Add(new JurassicJava());
+                order.Add(drink);
+                sweetButton.IsEnabled = false;
+                holdIceButton.IsEnabled = false;
+                decafButton.IsEnabled = true;
+                flavorButton.IsEnabled = false;
+                addLemonButton.IsEnabled = false;
             }
         }
 
@@ -92,7 +112,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Sodasaurus();
-                order.Add(new Sodasaurus());
+                order.Add(drink);
+                sweetButton.IsEnabled = false;
+                holdIceButton.IsEnabled = true;
+                decafButton.IsEnabled = false;
+                flavorButton.IsEnabled = true;
+                addLemonButton.IsEnabled = false;
             }
         }
 
@@ -106,7 +131,12 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Water();
-                order.Add(new Water());
+                order.Add(drink);
+                sweetButton.IsEnabled = false;
+                holdIceButton.IsEnabled = true;
+                decafButton.IsEnabled = false;
+                flavorButton.IsEnabled = false;
+                addLemonButton.IsEnabled = true;
             }
         }
 
@@ -117,9 +147,13 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void AddLemonButton(object sender, RoutedEventArgs e)
         {
-            if(DataContext is Water || DataContext is Tyrannotea)
+            if(drink is Water water)
             {
-                //this.drink.AddLemon();
+                water.AddLemon();
+            }
+            if (drink is Tyrannotea tea)
+            {
+                tea.AddLemon();
             }
         }
 
@@ -130,7 +164,18 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void HoldIceButton(object sender, RoutedEventArgs e)
         {
-
+            if(drink is Water water)
+            {
+                water.HoldIce();
+            }
+            if(drink is Tyrannotea tea)
+            {
+                tea.HoldIce();
+            }
+            if(drink is Sodasaurus soda)
+            {
+                soda.HoldIce();
+            }
         }
 
         /// <summary>
@@ -141,11 +186,6 @@ namespace PointOfSale
         private void SmallRadioButton(object sender, RoutedEventArgs e)
         {
             this.drink.Size = Size.Small;
-            /*
-            NotifyOfPropertyChanged("Size");
-            NotifyOfPropertyChanged("Price");
-            NotifyOfPropertyChanged("Description");
-            */
         }
 
         /// <summary>
@@ -157,11 +197,6 @@ namespace PointOfSale
         {
             
             this.drink.Size = Size.Medium;
-            /*
-            NotifyOfPropertyChanged("Size");
-            NotifyOfPropertyChanged("Price");
-            NotifyOfPropertyChanged("Description");
-            */
         }
 
         /// <summary>
@@ -172,11 +207,6 @@ namespace PointOfSale
         private void LargeRadioButton(object sender, RoutedEventArgs e)
         {
             this.drink.Size = Size.Large;
-            /*
-            NotifyOfPropertyChanged("Size");
-            NotifyOfPropertyChanged("Price");
-            NotifyOfPropertyChanged("Description");
-            */
         }
 
         /// <summary>
@@ -186,7 +216,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SweetButton(object sender, RoutedEventArgs e)
         {
-
+            if(drink is Tyrannotea tea)
+            {
+                tea.AddSweetener();
+            }
         }
 
         /// <summary>
@@ -196,7 +229,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void DecafButton(object sender, RoutedEventArgs e)
         {
-
+            if (drink is JurassicJava java)
+            {
+                java.IsDecaf();
+            }
         }
 
         /// <summary>
@@ -206,7 +242,20 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void FlavorButton(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new FlavorSelection((Sodasaurus)drink));
+            if(drink is Sodasaurus soda)
+            {
+                NavigationService.Navigate(new FlavorSelection(soda));
+            }
+        }
+
+        /// <summary>
+        /// This method sends the user back a page when they click the done button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnDone(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

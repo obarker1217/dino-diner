@@ -91,9 +91,10 @@ namespace DinoDiner.Menu
             OnCollectionChanged(this, new EventArgs());
         }
 
-        public bool Remove(IOrderItem item)
+        public void Remove(IOrderItem item)
         {
-            return items.Remove(item);
+            items.Remove(item);
+            OnCollectionChanged(this, new EventArgs());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -101,9 +102,9 @@ namespace DinoDiner.Menu
         private void OnCollectionChanged(object sender, EventArgs args)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal Cost"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sales Tax Cost"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total Cost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
         }
     }
 }

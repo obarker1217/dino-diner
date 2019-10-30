@@ -5,6 +5,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using DinoDiner.Menu;
+using Size = DinoDiner.Menu.Size;
 
 namespace PointOfSale
 {
@@ -14,7 +15,7 @@ namespace PointOfSale
     public partial class SideSelection : Page
     {
         /// <summary>
-        /// 
+        /// This is the private backing variable for the non-empty constructor.
         /// </summary>
         private Side side;
         
@@ -45,7 +46,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new Fryceritops();
-                order.Add(new Fryceritops());
+                order.Add(side);
             }
         }
 
@@ -59,7 +60,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new MeteorMacAndCheese();
-                order.Add(new MeteorMacAndCheese());
+                order.Add(side);
             }
         }
 
@@ -73,7 +74,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new MezzorellaSticks();
-                order.Add(new MezzorellaSticks());
+                order.Add(side);
             }
         }
 
@@ -87,7 +88,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new Triceritots();
-                order.Add(new Triceritots());
+                order.Add(side);
             }
         }
 
@@ -98,7 +99,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void SmallRadioButton(object sender, RoutedEventArgs e)
         {
-            //SideSelection(DinoDiner.Menu.Size)
+            this.side.Size = Size.Small;
             NavigationService.GoBack();
         }
 
@@ -109,7 +110,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void MediumRadioButton(object sender, RoutedEventArgs e)
         {
-
+            this.side.Size = Size.Medium;
             NavigationService.GoBack();
         }
 
@@ -120,7 +121,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void LargeRadioButton(object sender, RoutedEventArgs e)
         {
-
+            this.side.Size = Size.Large;
             NavigationService.GoBack();
         }
     }
