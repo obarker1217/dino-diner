@@ -8,54 +8,56 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ComboSelection">
 
-    <WrapPanel>
-        <WrapPanel.Resources>
-            <Style TargetType="Button">
-                <Setter Property="MinWidth" Value="140"/>
-                <Setter Property="MinHeight" Value="140"/>
-            </Style>    
-        </WrapPanel.Resources>
-        <Button VerticalContentAlignment="Top" Click="BrontowurstButton">
-            <Button.Background>
-                <ImageBrush ImageSource="Assets/DinoDiner-01.png"></ImageBrush>
-            </Button.Background>
-            Brontowurst Combo           
-        </Button>
-        <Button VerticalContentAlignment="Top" Click="DinoNuggetsButton">
-            <Button.Background>
-                <ImageBrush ImageSource="Assets/DinoDiner-02.png"></ImageBrush>
-            </Button.Background>
-            Dino-Nuggets Combo
-        </Button>
-        <Button VerticalContentAlignment="Top" Click="PrehistoricPBJButton">
-            <Button.Background>
-                <ImageBrush ImageSource="Assets/DinoDiner-03.png"></ImageBrush>
-            </Button.Background>
-            Prehistoric PB&amp;J Combo
-        </Button>
-        <Button VerticalContentAlignment="Top" Click="PterodactylWingsButton">
-            <Button.Background>
-                <ImageBrush ImageSource="Assets/DinoDiner-04.png"></ImageBrush>
-            </Button.Background>
-            Pterodactyl Wings Combo
-        </Button>
-        <Button VerticalContentAlignment="Top" Click="SteakosarusButton">
-            <Button.Background>
-                <ImageBrush ImageSource="Assets/DinoDiner-05.png"></ImageBrush>
-            </Button.Background>
-            Steakosaurus Burger Combo
-        </Button>
-        <Button VerticalContentAlignment="Top" Click="TRexKingButton">
-            <Button.Background>
-                <ImageBrush ImageSource="Assets/DinoDiner-06.png"></ImageBrush>
-            </Button.Background>
-            T-Rex King Burger Combo
-        </Button>
-        <Button VerticalContentAlignment="Top" Click="VelociwrapButton">
-            <Button.Background>
-                <ImageBrush ImageSource="Assets/DinoDiner-07.png"></ImageBrush>
-            </Button.Background>
-            Veloci-Wrap Combo
-        </Button>
-    </WrapPanel>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Click="OnSelectBrontowurst">
+                Brontowurst Combo
+            </Button>
+            <Button Grid.Column="1" Click="OnSelectDinoNuggets">
+                DinoNuggets Combo
+            </Button>
+            <Button Grid.Column="2" Click="OnSelectPrehistoricPBJ">
+                Prehistoric PB&amp;J Combo
+            </Button>
+            <Button Grid.Row ="1" Click="OnSelectPterodactylWings">
+                Pterodactyl Wings Combo
+            </Button>
+            <Button Grid.Row ="1" Grid.Column="1" Click="OnSelectSteakosaurusBurger">
+                Steakosaurus Burger Combo
+            </Button>
+            <Button Grid.Row ="1" Grid.Column="2" Click="OnSelectTRexKingBurger">
+                T-Rex King Burger Combo
+            </Button>
+            <Button Grid.Row ="2" Grid.Column="0" Click="OnSelectVelociwrap">
+                Veloci-Wrap Combo
+            </Button>
+            <Button Grid.Row="2" Grid.Column="1" Click="OnSelectSide">
+                Side
+            </Button>
+            <Button Grid.Row="2" Grid.Column="2" Click="OnSelectDrink">
+                Drink
+            </Button>
+
+            <RadioButton HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Checked="SmallRadioButton">
+                Small
+            </RadioButton>
+            <RadioButton HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1" Checked="MediumRadioButton">
+                Medium
+            </RadioButton>
+            <RadioButton HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="2" Checked="LargeRadioButton">
+                Large
+            </RadioButton>
+        </Grid>
+    </Grid>
 </Page>

@@ -70,10 +70,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// This method adds room to the coffee so the customer may add cream.
         /// </summary>
-        public void LeaveSpaceForCream()
+        public void LeaveRoomForCream()
         {
             this.SpaceForCream = true;
             NotifyOfPropertyChanged("Description");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

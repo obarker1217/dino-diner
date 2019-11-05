@@ -19,11 +19,11 @@ namespace DinoDiner.Menu
         {
             Order order = new Order();
             Sodasaurus soda = new Sodasaurus();
-            order.Items.Add(soda);
+            order.Add(soda);
             TRexKingBurger trex = new TRexKingBurger();
-            order.Items.Add(trex);
+            order.Add(trex);
             Fryceritops fry = new Fryceritops();
-            order.Items.Add(fry);
+            order.Add(fry);
             soda.Price = -100;
             Assert.Equal(order.SubtotalCost, -1);
         }
@@ -33,11 +33,11 @@ namespace DinoDiner.Menu
         {
             Order order = new Order();
             Sodasaurus soda = new Sodasaurus();
-            order.Items.Add(soda);
+            order.Add(soda);
             TRexKingBurger trex = new TRexKingBurger();
-            order.Items.Add(trex);
+            order.Add(trex);
             Fryceritops fry = new Fryceritops();
-            order.Items.Add(fry);
+            order.Add(fry);
             Assert.Equal(10.94, order.SubtotalCost);
         }
 
@@ -46,11 +46,11 @@ namespace DinoDiner.Menu
         {
             Order order = new Order();
             Sodasaurus soda = new Sodasaurus();
-            order.Items.Add(soda);
+            order.Add(soda);
             TRexKingBurger trex = new TRexKingBurger();
-            order.Items.Add(trex);
+            order.Add(trex);
             Fryceritops fry = new Fryceritops();
-            order.Items.Add(fry);
+            order.Add(fry);
             Assert.Equal(1.094, order.SalesTaxCost);
         }
 
@@ -59,11 +59,11 @@ namespace DinoDiner.Menu
         {
             Order order = new Order();
             Sodasaurus soda = new Sodasaurus();
-            order.Items.Add(soda);
+            order.Add(soda);
             TRexKingBurger trex = new TRexKingBurger();
-            order.Items.Add(trex);
+            order.Add(trex);
             Fryceritops fry = new Fryceritops();
-            order.Items.Add(fry);
+            order.Add(fry);
             Assert.Equal(12.034, order.TotalCost);
         }
     }

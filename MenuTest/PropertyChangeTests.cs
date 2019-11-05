@@ -11,11 +11,11 @@ namespace MenuTest
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public double Price { get; } = 5.0;
+        public double Price { get; set; } = 5.0;
 
         public string Description { get; } = "Something";
 
-        public string[] Special { get; } = new string[0];
+        public string[] Special { get; set; } = new string[0];
 
         public void Mutate()
         {

@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
+using Size = DinoDiner.Menu.Size;
 
 namespace PointOfSale
 {
@@ -25,6 +27,11 @@ namespace PointOfSale
     public partial class ComboSelection : Page
     {
         /// <summary>
+        /// This private backing variable sets the value for the combo.
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
         /// This constructor initializes the page.
         /// </summary>
         public ComboSelection()
@@ -33,73 +40,173 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// This gives functionality to the Brontowurst button.
+        /// This event creates a non-empty combo.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BrontowurstButton(object sender, RoutedEventArgs e)
+        /// <param name="combo"></param>
+        public ComboSelection(CretaceousCombo combo)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            InitializeComponent();
+            this.combo = combo;
         }
 
         /// <summary>
-        /// This gives functionality to the Dino Nuggets button.
+        /// This event adds a Brontowurst and goes to its selection page.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DinoNuggetsButton(object sender, RoutedEventArgs e)
+        private void OnSelectBrontowurst(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            if (DataContext is Order order)
+            {
+                Brontowurst bw = new Brontowurst();
+                order.Add(bw);
+                NavigationService.Navigate(new CustomizeBrontowurst(bw));
+            }
         }
 
         /// <summary>
-        /// This gives functionality to the Prehistoric PBJ button.
+        /// This event adds a Dino Nugget and goes to its selection page.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PrehistoricPBJButton(object sender, RoutedEventArgs e)
+        private void OnSelectDinoNuggets(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            if (DataContext is Order order)
+            {
+                DinoNuggets dn = new DinoNuggets();
+                order.Add(dn);
+                NavigationService.Navigate(new CustomizeDinoNuggets(dn));
+            }
         }
 
         /// <summary>
-        /// This gives functionality to the Pterodactyl Wings button.
+        /// This event adds a Prehistoric PB&J and goes to its selection page.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PterodactylWingsButton (object sender, RoutedEventArgs e)
+        private void OnSelectPrehistoricPBJ(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            if (DataContext is Order order)
+            {
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
+            }
         }
 
         /// <summary>
-        /// This gives functionality to the Steakosaurus Burger button.
+        /// This event adds a Pterodactyl Wing and goes to its selection page.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SteakosarusButton(object sender, RoutedEventArgs e)
+        private void OnSelectPterodactylWings(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            if (DataContext is Order order)
+            {
+                PterodactylWings pw = new PterodactylWings();
+                order.Add(pw);
+            }
         }
 
         /// <summary>
-        /// This gives functionality to the TRex King Burger button.
+        /// This event adds a Steakosaurus Burger and goes to its selection page.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TRexKingButton(object sender, RoutedEventArgs e)
+        private void OnSelectSteakosaurusBurger(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            if (DataContext is Order order)
+            {
+                SteakosaurusBurger sb = new SteakosaurusBurger();
+                order.Add(sb);
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(sb));
+            }
         }
 
         /// <summary>
-        /// This gives functionality to the Veloci-Wrap button.
+        /// This event adds a T-Rex King Burger and goes to its selection page.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void VelociwrapButton(object sender, RoutedEventArgs e)
+        private void OnSelectTRexKingBurger(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            if (DataContext is Order order)
+            {
+                TRexKingBurger trex = new TRexKingBurger();
+                order.Add(trex);
+                NavigationService.Navigate(new CustomizeTRexKingBurger(trex));
+            }
+        }
+
+        /// <summary>
+        /// This event adds a Veloci-Wrap and goes to its selection page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnSelectVelociwrap(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                VelociWrap vw = new VelociWrap();
+                order.Add(vw);
+                NavigationService.Navigate(new CustomizeVelociWrap(vw));
+            }
+        }
+
+        /// <summary>
+        /// This event moves to the side selection page to add to the order.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnSelectSide(object sender, RoutedEventArgs e)
+        {
+            if(DataContext is Order order)
+            {
+                NavigationService.Navigate(new SideSelection());
+            }
+        }
+
+        /// <summary>
+        /// This event moves to the drink selection page to add to the order.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnSelectDrink(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                NavigationService.Navigate(new DrinkSelection());
+            }
+        }
+
+        /// <summary>
+        /// This mehtod changes the combo to a small.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SmallRadioButton(object sender, RoutedEventArgs e)
+        {
+            this.combo.Size = Size.Small;
+        }
+
+        /// <summary>
+        /// This mehtod changes the combo to a medium.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MediumRadioButton(object sender, RoutedEventArgs e)
+        {
+            this.combo.Size = Size.Medium;
+        }
+
+        /// <summary>
+        /// This mehtod changes the combo to a large.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LargeRadioButton(object sender, RoutedEventArgs e)
+        {
+            this.combo.Size = Size.Large;
         }
     }
 }
