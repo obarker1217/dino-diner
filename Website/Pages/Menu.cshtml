@@ -6,3 +6,51 @@
 
 <h1>Menu</h1>
 
+<h2>Combos</h2>
+<div class="menu-item">
+    @foreach(CretaceousCombo combo in Model.Menu)
+    {
+    <div class="combo">
+        <h3>@combo.Price</h3>
+        <h3>@combo.Calories</h3>
+        <h3>@combo.Ingredients</h3>
+    </div>
+    }
+</div>
+
+<h2>Entrees</h2>
+<div class="menu-item">
+    @foreach (Entree entree in Model.Menu)
+    {
+    <div class="entrees">
+        <h3>@entree.Price</h3>
+        <h3>@entree.Calories</h3>
+        <ul>@entree.Ingredients</ul>
+    </div>
+    }
+</div>
+
+<h2>Sides</h2>
+<div class="menu-item">
+    @foreach (Side side in Model.Menu)
+    {
+    <div class="sides">
+        <h3>@side.Price</h3>
+        <h3>@side.Calories</h3>
+        <ul>@side.Ingredients</ul>
+    </div>
+    }
+</div>
+
+<h2>Drinks</h2>
+<div class="menu-item">
+    @foreach (Drink drink in Model.Menu)
+    {
+    <div class="drinks">
+        <h3>@drink.Price</h3>
+        <h3>@drink.Calories</h3>
+        <ul>@drink.Ingredients</ul>
+    </div>
+    }
+</div>
+
