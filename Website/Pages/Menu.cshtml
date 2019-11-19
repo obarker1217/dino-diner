@@ -1,56 +1,67 @@
-﻿@page
+﻿
+@page
 @model Website.Pages.MenuModel
 @{
     ViewData["Title"] = "Menu";
 }
 
+@using DinoDiner.Menu;
+
 <h1>Menu</h1>
 
 <h2>Combos</h2>
+<!--
 <div class="menu-item">
-    @foreach(CretaceousCombo combo in Model.Menu)
+    foreach (CretaceousCombo combo in Model.Menu.AvailableMenuItems)
     {
-    <div class="combo">
-        <h3>@combo.Price</h3>
-        <h3>@combo.Calories</h3>
-        <h3>@combo.Ingredients</h3>
-    </div>
+        <div class="combo">
+            <h3>combo.Price</h3>
+            <h3>combo.Calories</h3>
+            <h3>combo.Ingredients</h3>
+            
+        </div>
     }
 </div>
+    -->
 
 <h2>Entrees</h2>
 <div class="menu-item">
-    @foreach (Entree entree in Model.Menu)
+    @foreach (Entree entree in Model.Menu.AvailableEntrees)
     {
-    <div class="entrees">
-        <h3>@entree.Price</h3>
-        <h3>@entree.Calories</h3>
-        <ul>@entree.Ingredients</ul>
-    </div>
+        <div class="entrees">
+            <h3>@entree.ToString()</h3>
+            <h3>Price: $@entree.Price</h3>
+            <h3>Calories: @entree.Calories</h3>
+            @foreach(string ingredient in entree.Ingredients)
+            {
+                <h3>@ingredient</h3>
+            }
+            <p>-------------------------------------------------------------------------</p>
+        </div>
     }
 </div>
 
 <h2>Sides</h2>
 <div class="menu-item">
-    @foreach (Side side in Model.Menu)
+    @foreach (Side side in Model.Menu.AvailableSide)
     {
-    <div class="sides">
-        <h3>@side.Price</h3>
-        <h3>@side.Calories</h3>
-        <ul>@side.Ingredients</ul>
-    </div>
+        <div class="sides">
+            <h3>@side.Price</h3>
+            <h3>@side.Calories</h3>
+            <ul>@side.Ingredients.ToString()</ul>
+        </div>
     }
 </div>
 
 <h2>Drinks</h2>
 <div class="menu-item">
-    @foreach (Drink drink in Model.Menu)
+    @foreach (Drink drink in Model.Menu.AvailableDrinks)
     {
-    <div class="drinks">
-        <h3>@drink.Price</h3>
-        <h3>@drink.Calories</h3>
-        <ul>@drink.Ingredients</ul>
-    </div>
+        <div class="drinks">
+            <h3>@drink.Price</h3>
+            <h3>@drink.Calories</h3>
+            <ul>@drink.Ingredients</ul>
+        </div>
     }
 </div>
 

@@ -48,9 +48,13 @@ namespace DinoDiner.Menu
             get
             {
                 List<Entree> entreeList = new List<Entree>();
-                foreach(Entree entree in AvailableMenuItems)
+                foreach(IMenuItem item in AvailableMenuItems)
                 {
-                    entreeList.Add(entree);
+                    if(item is Entree)
+                    {
+                        entreeList.Add((Entree)item);
+                    }
+                        
                 }
                 return entreeList;
             }
@@ -104,7 +108,7 @@ namespace DinoDiner.Menu
                 List<CretaceousCombo> comboList = new List<CretaceousCombo>();
                 foreach (IMenuItem menuItem in AvailableMenuItems)
                 {
-                    if (menuItem is Entree)
+                    if (menuItem is CretaceousCombo)
                     {
                         comboList.Add((CretaceousCombo)menuItem);
                     }
