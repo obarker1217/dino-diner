@@ -10,19 +10,23 @@
 <h1>Menu</h1>
 
 <h2>Combos</h2>
-<!--
+
 <div class="menu-item">
-    foreach (CretaceousCombo combo in Model.Menu.AvailableMenuItems)
+    @foreach (CretaceousCombo combo in Model.Menu.AvailableCombos)
     {
-        <div class="combo">
-            <h3>combo.Price</h3>
-            <h3>combo.Calories</h3>
-            <h3>combo.Ingredients</h3>
-            
+        <div class="combos">
+            <h3>@combo.ToString()</h3>
+            <h3>Price: $@combo.Price</h3>
+            <h3>Calories: @combo.Calories</h3>
+            @foreach (string ingredient in combo.Ingredients)
+            {
+                <h3>@ingredient</h3>
+            }
+            <p>-------------------------------------------------------------------------</p>
         </div>
     }
 </div>
-    -->
+    
 
 <h2>Entrees</h2>
 <div class="menu-item">
@@ -46,9 +50,14 @@
     @foreach (Side side in Model.Menu.AvailableSide)
     {
         <div class="sides">
-            <h3>@side.Price</h3>
-            <h3>@side.Calories</h3>
-            <ul>@side.Ingredients.ToString()</ul>
+            <h3>@side.ToString()</h3>
+            <h3>Price: $@side.Price</h3>
+            <h3>Calories: @side.Calories</h3>
+            @foreach (string ingredient in side.Ingredients)
+            {
+                <h3>@ingredient</h3>
+            }
+            <p>-------------------------------------------------------------------------</p>
         </div>
     }
 </div>
@@ -58,9 +67,14 @@
     @foreach (Drink drink in Model.Menu.AvailableDrinks)
     {
         <div class="drinks">
-            <h3>@drink.Price</h3>
-            <h3>@drink.Calories</h3>
-            <ul>@drink.Ingredients</ul>
+            <h3>@drink.ToString()</h3>
+            <h3>Price: $@drink.Price</h3>
+            <h3>Calories: @drink.Calories</h3>
+            @foreach (string ingredient in drink.Ingredients)
+            {
+                <h3>@ingredient</h3>
+            }
+            <p>-------------------------------------------------------------------------</p>
         </div>
     }
 </div>
