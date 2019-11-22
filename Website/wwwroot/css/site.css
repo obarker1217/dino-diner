@@ -15,6 +15,28 @@ body {
 .menu-item
 {
     border: 1px solid gray;
+    width: 800px;
     text-align: center;
+    background-color: sandybrown
 }
 
+.content
+{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+form
+{
+    width: 200px;
+    background-color: lightseagreen;
+    flex-grow: 0;
+    padding: 50px;
+}
+
+.menu-filter
+{
+    display: flex;
+    flex-direction: column;
+}

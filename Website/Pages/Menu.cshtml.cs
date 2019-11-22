@@ -22,9 +22,102 @@ namespace Website.Pages
         /// </summary>
         public Menu Menu { get; } = new Menu();
 
+        public List<IMenuItem> menuList;
+
+        [BindProperty]
+        public int minPrice { get; set; }
+
+        [BindProperty]
+        public int maxPrice { get; set; }
+
+        [BindProperty]
+        public List<string> menuCategory { get; set; } = new List<string>();
+
         public void OnGet()
         {
-            
+            menuList = Menu.AvailableMenuItems;
+        }
+
+        public void OnPost()
+        {
+            menuList = Menu.AvailableMenuItems;
+
+            if(menuCategory != null)
+            {
+                menuList = FilterByMenuCategory(menuList, menuCategory);
+            }
+        }
+
+        public List<IMenuItem> Search(List<IMenuItem> menuItem, string searchString)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach(IMenuItem item in Menu.AvailableMenuItems)
+            {
+                if(item.ToString().Contains(searchString, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
+
+        public List<IMenuItem> FilterByMenuCategory(List<IMenuItem> menuItem, List<string> menuCategory)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach (IMenuItem item in Menu.AvailableMenuItems)
+            {
+                if (item is CretaceousCombo && menuCategory.Contains("Combo"))
+                {
+                    result.Add(item);
+                }
+                if (item is Entree && menuCategory.Contains("Entree"))
+                {
+                    result.Add(item);
+                }
+                if (item is Side && menuCategory.Contains("Side"))
+                {
+                    result.Add(item);
+                }
+                if (item is Drink && menuCategory.Contains("Drink"))
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
+
+        public List<IMenuItem> FilterByMinPrice(List<IMenuItem> menuItem, float minPrice)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach (IMenuItem item in Menu.AvailableMenuItems)
+            {
+                if (item.Price >= minPrice)
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
+
+        public List<IMenuItem> FilterByMaxPrice(List<IMenuItem> menuItem, float maxPrice)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach (IMenuItem item in Menu.AvailableMenuItems)
+            {
+                if (item.Price <= maxPrice)
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result;
         }
     }
 }
