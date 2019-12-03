@@ -25,10 +25,13 @@ namespace Website.Pages
         public List<IMenuItem> menuList;
 
         [BindProperty]
-        public int minPrice { get; set; }
+        public string search { get; set; }
 
         [BindProperty]
-        public int maxPrice { get; set; }
+        public int? minPrice { get; set; }
+
+        [BindProperty]
+        public int? maxPrice { get; set; }
 
         [BindProperty]
         public List<string> menuCategory { get; set; } = new List<string>();
@@ -45,6 +48,16 @@ namespace Website.Pages
             if(menuCategory != null)
             {
                 menuList = FilterByMenuCategory(menuList, menuCategory);
+            }
+
+            if (minPrice != null)
+            {
+                menuList = FilterByMinPrice(menuList, (int)minPrice);
+            }
+
+            if (minPrice != null)
+            {
+                menuList = FilterByMaxPrice(menuList, (int)maxPrice);
             }
         }
 
