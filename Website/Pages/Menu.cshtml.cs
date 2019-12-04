@@ -36,6 +36,9 @@ namespace Website.Pages
         [BindProperty]
         public List<string> menuCategory { get; set; } = new List<string>();
 
+        [BindProperty]
+        public List<string> PossileIngredients { get; set; }
+
         public void OnGet()
         {
             menuList = Menu.AvailableMenuItems;
@@ -55,7 +58,7 @@ namespace Website.Pages
                 menuList = FilterByMinPrice(menuList, (int)minPrice);
             }
 
-            if (minPrice != null)
+            if (maxPrice != null)
             {
                 menuList = FilterByMaxPrice(menuList, (int)maxPrice);
             }
